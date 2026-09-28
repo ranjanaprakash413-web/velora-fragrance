@@ -85,7 +85,7 @@ app.use(notFoundHandler);
 app.use(errorHandler);
 
 // 6. Start Server
-const server = app.listen(PORT, () => {
+const server = app.listen(PORT, '0.0.0.0', () => {
   console.log(`[VELORA API] Server running in ${NODE_ENV} mode on port ${PORT}`);
   console.log(`[VELORA API] Health endpoint: http://localhost:${PORT}/api/health`);
 });
