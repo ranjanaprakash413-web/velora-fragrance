@@ -1,0 +1,144 @@
+.perfume-3d {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 500px;
+  max-width: 700px;
+  aspect-ratio: 3 / 4;
+}
+
+.perfume-3d canvas {
+  width: 100% !important;
+  height: 100% !important;
+  cursor: grab;
+}
+
+.perfume-3d canvas:active {
+  cursor: grabbing;
+}
+
+/* ── Golden Particles Overlay ── */
+.perfume-3d__particles-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.perfume-3d__sparkle {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: radial-gradient(circle, #c8a45e 0%, transparent 70%);
+  border-radius: 50%;
+  animation: sparkleFloat 5s ease-in-out infinite;
+  opacity: 0;
+}
+
+@keyframes sparkleFloat {
+  0% {
+    opacity: 0;
+    transform: translateY(0) scale(0.5);
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-60px) scale(1.2);
+  }
+}
+
+/* ── Loading Fallback ── */
+.perfume-3d__loader {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  background: transparent;
+}
+
+.perfume-3d__loader-ring {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 2px solid rgba(200, 164, 94, 0.15);
+  border-top-color: #c8a45e;
+  animation: loaderSpin 1s linear infinite;
+}
+
+@keyframes loaderSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.perfume-3d__loader-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #c8a45e;
+}
+
+/* ── Static Fallback ── */
+.perfume-3d__fallback {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.perfume-3d__fallback-img {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 0 40px rgba(200, 164, 94, 0.15));
+}
+
+/* ── Golden Glow Behind Scene ── */
+.perfume-3d::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60%;
+  height: 60%;
+  background: radial-gradient(circle, rgba(200, 164, 94, 0.06) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .perfume-3d {
+    max-width: 500px;
+    min-height: 400px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .perfume-3d {
+    max-width: 350px;
+    min-height: 350px;
+  }
+}
+
+@media (max-width: 480px) {
+  .perfume-3d {
+    max-width: 280px;
+    min-height: 300px;
+  }
+}

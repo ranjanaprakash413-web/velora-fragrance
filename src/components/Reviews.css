@@ -1,0 +1,155 @@
+.reviews {
+  background-color: #1a1a1a;
+  padding: 100px 20px;
+  color: #fff;
+  text-align: center;
+}
+
+.reviews__container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.reviews__header {
+  margin-bottom: 60px;
+}
+
+.reviews__label {
+  display: block;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  color: #c8a45e;
+  margin-bottom: 1rem;
+}
+
+.reviews__title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 3vw, 2.5rem);
+  font-weight: 400;
+}
+
+.reviews__carousel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.reviews__btn {
+  background: transparent;
+  border: 1px solid rgba(200, 164, 94, 0.3);
+  color: #c8a45e;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.reviews__btn:hover {
+  background: rgba(200, 164, 94, 0.1);
+  border-color: #c8a45e;
+}
+
+.reviews__content-wrapper {
+  flex: 1;
+  overflow: hidden;
+  padding: 0 20px;
+}
+
+.review-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.review-card__quote-mark {
+  font-family: 'Playfair Display', serif;
+  font-size: 60px;
+  color: #c8a45e;
+  line-height: 1;
+  margin-bottom: 10px;
+  opacity: 0.5;
+}
+
+.review-card__text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-style: italic;
+  max-width: 600px;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.review-card__rating {
+  color: #c8a45e;
+  margin-bottom: 20px;
+}
+
+.review-card__author {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.review-card__avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid #c8a45e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  color: #c8a45e;
+}
+
+.review-card__meta {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.review-card__name {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  color: #c8a45e;
+}
+
+.review-card__product {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8rem;
+  color: #888;
+}
+
+.reviews__dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.reviews__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: transparent;
+  border: 1px solid #c8a45e;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.3s ease;
+}
+
+.reviews__dot.active {
+  background: #c8a45e;
+}
+
+@media (max-width: 768px) {
+  .reviews__btn { display: none; }
+}

@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: velora-backend
+    env: node
+    plan: starter
+    rootDir: server
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 5000
+      - key: JWT_SECRET
+        generateValue: true
+      - key: JWT_EXPIRES_IN
+        value: 7d
+      - key: FRONTEND_URL
+        sync: false
+    disk:
+      name: velora-data
+      mountPath: /data
+      sizeGB: 1

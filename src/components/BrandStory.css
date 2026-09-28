@@ -1,0 +1,139 @@
+.brand-story {
+  background-color: #111;
+  padding: 120px 40px;
+  color: #fff;
+}
+
+.brand-story__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+@media (max-width: 900px) {
+  .brand-story__container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .brand-story {
+    padding: 80px 20px;
+  }
+}
+
+.brand-story__image-wrapper {
+  position: relative;
+  padding: 20px;
+}
+
+.brand-story__image {
+  width: 100%;
+  height: auto;
+  display: block;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+}
+
+.brand-story__image-corner {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  border: 2px solid #c8a45e;
+}
+
+.brand-story__image-corner--tl {
+  top: 0;
+  left: 0;
+  border-right: none;
+  border-bottom: none;
+}
+
+.brand-story__image-corner--br {
+  bottom: 0;
+  right: 0;
+  border-left: none;
+  border-top: none;
+}
+
+.brand-story__content {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-story__label {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  color: #c8a45e;
+  margin-bottom: 1rem;
+}
+
+.brand-story__title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 3vw, 2.5rem);
+  font-weight: 400;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.brand-story__text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem;
+  color: #d0d0d0;
+  margin-bottom: 2.5rem;
+}
+
+.brand-story__text p {
+  margin-bottom: 1rem;
+}
+
+.brand-story__features {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.brand-feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.brand-feature__icon {
+  color: #c8a45e;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.brand-feature__info h4 {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+  color: #f5e6c8;
+}
+
+.brand-feature__info p {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.875rem;
+  color: #a0a0a0;
+}
+
+.brand-story__btn {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  color: #0a0a0a;
+  background-color: #c8a45e;
+  padding: 1rem 2rem;
+  text-decoration: none;
+  align-self: flex-start;
+  transition: all 0.3s ease;
+}
+
+.brand-story__btn:hover {
+  background-color: #d4af37;
+  transform: translateY(-2px);
+}
