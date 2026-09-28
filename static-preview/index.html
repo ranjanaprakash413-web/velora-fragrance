@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#090909" />
+  <meta name="description" content="VELORA — a fragrance that becomes your signature." />
+
+  <title>VELORA — Luxury Fragrance</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="Velora home">
+      VELORA<span>®</span>
+      <small>THE ART OF FRAGRANCE</small>
+    </a>
+
+    <button
+      class="menu-toggle"
+      id="menuToggle"
+      aria-label="Open menu"
+      aria-expanded="false"
+    >
+      ☰
+    </button>
+
+    <nav class="nav" id="nav">
+      <a href="#home">Home</a>
+      <a href="#shop">Shop</a>
+      <a href="#about">About</a>
+      <a href="#notes">Discover</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="icon-btn" aria-label="Search" id="searchBtn">⌕</button>
+      <button class="icon-btn" aria-label="Account" id="accountBtn">♙</button>
+      <button class="bag-btn" id="bagBtn" aria-label="Shopping bag">
+        ♧ <span id="cartCount">0</span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero section" id="home">
+      <div class="hero-copy reveal">
+        <p class="eyebrow">
+          <i></i>
+          PREMIUM COLLECTION
+        </p>
+
+        <h1>
+          More Than a Fragrance.<br>
+          <em>It’s a Presence.</em>
+        </h1>
+
+        <p class="hero-desc">
+          Crafted for those who move with quiet confidence.
+          Discover a signature that stays long after you leave.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn btn-gold" href="#shop">
+            EXPLORE COLLECTION
+            <span>↗</span>
+          </a>
+          <a class="round-link" href="#about" aria-label="Learn more">→</a>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-glow"></div>
+        <div class="smoke smoke-one"></div>
+        <div class="smoke smoke-two"></div>
+        <div class="petal petal-a"></div>
+        <div class="petal petal-b"></div>
+        <div class="petal petal-c"></div>
+
+        <div class="hero-video">
+          <video autoplay muted loop playsinline preload="auto" id="heroVideo">
+            <source src="../video/velora vdo3.mp4" type="video/mp4">
+            Your browser does not support video.
+          </video>
+        </div>
+
+        <div class="hero-side-note">
+          VELORA NOIR
+          <span>— 01 / 04</span>
+        </div>
+      </div>
+
+      <div class="hero-bottom">
+        <span>SCROLL TO DISCOVER</span>
+        <div class="scroll-line"></div>
+        <span>01 — 04</span>
+      </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="velora-about section" id="about">
+      <div class="about-top-label reveal">
+        01 / THE VELORA EXPERIENCE
+      </div>
+
+      <div class="about-main-grid">
+        <div class="about-left reveal">
+          <h2>
+            A little mystery.<br>
+            <em>A lasting impression.</em>
+          </h2>
+
+          <p class="about-description">
+            <strong>VELORA</strong> is an expression of modern elegance.
+            Every fragrance is imagined as a personal signature —
+            distinctive, memorable, and effortlessly yours.
+          </p>
+
+          <div class="about-notes">
+            <div class="about-note">
+              <span>Top Notes</span>
+              <strong>Bergamot</strong>
+              <small>Pink Pepper</small>
+            </div>
+            <div class="about-note">
+              <span>Heart Notes</span>
+              <strong>Jasmine</strong>
+              <small>Rose</small>
+            </div>
+            <div class="about-note">
+              <span>Base Notes</span>
+              <strong>Amber</strong>
+              <small>Vanilla</small>
+            </div>
+          </div>
+
+          <a href="#notes" class="about-explore">
+            EXPLORE THE SCENT
+            <span>↗</span>
+          </a>
+        </div>
+
+        <div class="about-product reveal">
+          <div class="about-glow"></div>
+          <div class="about-smoke"></div>
+          <div class="about-orb orb-one"></div>
+          <div class="about-orb orb-two"></div>
+          <div class="about-flower"></div>
+          <p class="about-side-copy">
+            <strong>VELORA</strong> is an expression of
+            modern elegance, where fragrance meets emotion.
+            Crafted for those who seek more than just a scent —
+            but a feeling.
+          </p>
+        </div>
+      </div>
+
+      <div class="about-bottom reveal">
+        <span>← &nbsp; 01 / THE VELORA EXPERIENCE</span>
+        <span>02 / SIGNATURE SCENTS</span>
+        <span>03 / OUR PHILOSOPHY &nbsp; →</span>
+      </div>
+    </section>
+
+    <!-- COLLECTION -->
+    <section class="collection section" id="shop">
+      <div class="section-heading reveal">
+        <div>
+          <p class="eyebrow">
+            <i></i>
+            CURATED FOR YOU
+          </p>
+          <h2>
+            Our Signature
+            <em>Collection</em>
+          </h2>
+        </div>
+
+        <a href="#shop" class="text-link">
+          VIEW ALL SCENTS
+          <span>↗</span>
+        </a>
+      </div>
+
+      <div class="product-grid">
+        <!-- NOIR -->
+        <article class="product-card reveal">
+          <div class="product-image image-noir">
+            <span class="product-tag">BESTSELLER</span>
+            <img src="../src/assets/generated/velora_noir.jpg" alt="VELORA NOIR perfume" class="real-perfume-image">
+            <button class="quick-add" data-add="VELORA NOIR">＋ QUICK ADD</button>
+          </div>
+          <div class="product-meta">
+            <div>
+              <h3>VELORA NOIR</h3>
+              <p>Amber · Woody · Musk</p>
+            </div>
+            <strong>₹2,499</strong>
+          </div>
+        </article>
+
+        <!-- AMBER / GOLD -->
+        <article class="product-card reveal">
+          <div class="product-image image-amber">
+            <span class="product-tag">NEW ARRIVAL</span>
+            <img src="../src/assets/generated/velora_gold.jpg" alt="VELORA AMBER perfume" class="real-perfume-image">
+            <button class="quick-add" data-add="VELORA AMBER">＋ QUICK ADD</button>
+          </div>
+          <div class="product-meta">
+            <div>
+              <h3>VELORA AMBER</h3>
+              <p>Warm · Spiced · Rich</p>
+            </div>
+            <strong>₹2,299</strong>
+          </div>
+        </article>
+
+        <!-- BLUSH / BLOOM -->
+        <article class="product-card reveal">
+          <div class="product-image image-blush">
+            <span class="product-tag">EDITOR'S PICK</span>
+            <img src="../src/assets/generated/velora_bloom.jpg" alt="VELORA BLUSH perfume" class="real-perfume-image">
+            <button class="quick-add" data-add="VELORA BLUSH">＋ QUICK ADD</button>
+          </div>
+          <div class="product-meta">
+            <div>
+              <h3>VELORA BLUSH</h3>
+              <p>Floral · Soft · Radiant</p>
+            </div>
+            <strong>₹2,199</strong>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- DISCOVER FULL SCREEN -->
+    <section class="velora-discover-full" id="notes">
+      <video class="discover-full-video" autoplay muted loop playsinline preload="auto">
+        <source src="../video/velora dis.mp4" type="video/mp4">
+      </video>
+
+      <div class="discover-full-overlay"></div>
+
+      <div class="discover-full-content">
+        <p class="discover-label">
+          <span></span>
+          DISCOVER THE NOTES
+        </p>
+
+        <h2>
+          Every layer tells
+          <em>a story.</em>
+        </h2>
+
+        <p class="discover-description">
+          Explore the carefully balanced character of VELORA.
+          Discover the notes that create your signature scent.
+        </p>
+
+        <div class="discover-mini-notes">
+          <div>
+            <small>TOP NOTES</small>
+            <strong>Bergamot · Pink Pepper</strong>
+          </div>
+          <div>
+            <small>HEART NOTES</small>
+            <strong>Jasmine · Rose</strong>
+          </div>
+          <div>
+            <small>BASE NOTES</small>
+            <strong>Amber · Vanilla · Oud</strong>
+          </div>
+        </div>
+
+        <a href="#shop" class="discover-explore">
+          EXPLORE THE COLLECTION
+          <span>↗</span>
+        </a>
+      </div>
+
+      <div class="discover-page-number">03 / 04</div>
+    </section>
+
+    <!-- FULLSCREEN FEATURE -->
+    <section class="velora-fullscreen-feature">
+      <img src="../src/assets/generated/promo_banner.jpg" alt="VELORA Luxury Perfume" class="fullscreen-perfume-image">
+      <div class="fullscreen-overlay"></div>
+
+      <div class="fullscreen-content">
+        <p class="eyebrow">
+          <i></i>
+          THE VELORA STANDARD
+        </p>
+
+        <h2>
+          Made to be<br>
+          <em>remembered.</em>
+        </h2>
+
+        <p class="fullscreen-description">
+          Considered design. Distinctive character.
+          A fragrance experience that feels personal
+          from the very first moment.
+        </p>
+
+        <a class="btn btn-outline" href="#shop">
+          DISCOVER THE SCENT
+          <span>↗</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta section" id="contact">
+      <div class="cta-inner reveal">
+        <p class="eyebrow">
+          <i></i>
+          YOUR SIGNATURE AWAITS
+        </p>
+
+        <h2>
+          Make it
+          <em>unforgettable.</em>
+        </h2>
+
+        <p>Find the fragrance that feels unmistakably yours.</p>
+
+        <a href="#shop" class="btn btn-gold">
+          EXPLORE VELORA
+          <span>↗</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-top">
+      <a class="brand" href="#home">
+        VELORA<span>®</span>
+        <small>THE ART OF FRAGRANCE</small>
+      </a>
+
+      <p>Where elegance meets every drop.</p>
+
+      <form id="newsletter" class="newsletter">
+        <label for="email">A NOTE FROM VELORA</label>
+        <div>
+          <input id="email" type="email" placeholder="Your email address" required>
+          <button type="submit" aria-label="Subscribe">→</button>
+        </div>
+        <small id="newsletterMessage"></small>
+      </form>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 VELORA. ALL RIGHTS RESERVED.</span>
+      <div>
+        <a href="#shop">SHOP</a>
+        <a href="#contact">CONTACT</a>
+        <a href="#home">BACK TO TOP ↑</a>
+      </div>
+      <span>CRAFTED WITH INTENTION</span>
+    </div>
+  </footer>
+
+  <!-- TOAST -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
