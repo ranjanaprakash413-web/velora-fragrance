@@ -1,0 +1,2866 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap');
+
+:root{--bg:#090909;--panel:#111110;--gold:#d7bd88;--gold2:#f1dfb7;--text:#eeeae3;--muted:#99958e;--line:rgba(215,189,136,.2);--serif:"Playfair Display",Georgia,serif;--sans:"DM Sans",Arial,sans-serif}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);font-size:13px;letter-spacing:.01em;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button,input{font:inherit}
+button{cursor:pointer}
+.grain{pointer-events:none;position:fixed;inset:0;z-index:20;opacity:.045;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E")}
+.site-header{height:76px;position:fixed;z-index:30;top:0;left:0;right:0;padding:0 5.2%;display:flex;align-items:center;justify-content:space-between;background:rgba(9,9,9,.45);backdrop-filter:blur(18px);border-bottom:1px solid transparent;transition:.3s}
+.site-header.scrolled{background:rgba(9,9,9,.88);border-color:var(--line)}
+.brand{font-size:16px;letter-spacing:.19em;font-weight:600;line-height:1;position:relative}
+.brand span{font-size:7px;vertical-align:top;margin-left:2px;color:var(--gold)}
+.brand small{display:block;font-size:6px;letter-spacing:.25em;color:#aaa;margin-top:7px;font-weight:400}
+.nav{display:flex;gap:32px;margin-left:7%}
+.nav a,.header-actions{font-size:10px;color:#c9c6c0;letter-spacing:.04em}
+.nav a{transition:color .2s}
+.nav a:hover,.footer a:hover{color:var(--gold)}
+.header-actions{display:flex;align-items:center;gap:18px}
+.icon-btn,.bag-btn{border:0;background:none;color:#ddd;font-size:17px;padding:5px}
+.bag-btn{font-size:14px}
+.bag-btn span{font-size:9px;color:var(--gold);margin-left:3px}
+.menu-toggle{display:none;background:none;color:white;border:0;font-size:20px}
+.section{position:relative;padding-left:9%;padding-right:9%}
+.hero{height:100vh;min-height:650px;display:grid;grid-template-columns:1fr 1.05fr;align-items:center;padding-top:76px;background:radial-gradient(ellipse at 73% 48%,rgba(151,112,54,.13),transparent 35%),linear-gradient(110deg,#090909 0%,#0c0c0b 62%,#080808 100%);overflow:hidden}
+.hero-copy{position:relative;z-index:2;max-width:430px;margin-top:-20px}
+.eyebrow{font-size:8px;letter-spacing:.24em;color:var(--gold);font-weight:600;display:flex;align-items:center;gap:9px;margin:0 0 25px}
+.eyebrow i{width:16px;height:1px;background:var(--gold);display:inline-block}
+.hero h1,.intro h2,.section-heading h2,.notes h2,.feature h2,.cta h2{font-family:var(--serif);font-weight:400;letter-spacing:-.045em;line-height:1.08}
+.hero h1{font-size:clamp(38px,5vw,66px);margin:0 0 23px}
+.hero h1 em,.intro h2 em,.section-heading h2 em,.notes h2 em,.feature h2 em,.cta h2 em{color:var(--gold);font-weight:400}
+.hero-desc,.intro-grid p,.notes-copy>p:not(.eyebrow),.feature-copy>p:not(.eyebrow),.cta-inner>p:not(.eyebrow){color:#aaa7a0;font-size:11px;line-height:1.9;max-width:340px}
+.hero-actions{display:flex;align-items:center;gap:17px;margin-top:31px}
+.btn{display:inline-flex;align-items:center;gap:22px;padding:13px 18px;font-size:8px;letter-spacing:.15em;font-weight:600;transition:.25s}
+.btn-gold{background:var(--gold);color:#17130c}
+.btn-gold:hover{background:var(--gold2);transform:translateY(-2px);box-shadow:0 8px 28px #d7bd8833}
+.btn span{font-size:13px}
+.round-link{width:34px;height:34px;border:1px solid #6d675b;border-radius:50%;display:grid;place-items:center;font-size:14px;transition:.25s}
+.round-link:hover{border-color:var(--gold);color:var(--gold);transform:translateX(3px)}
+
+/* Hero video: fills the visual column behind the decorative effects */
+.hero-visual{height:100%;min-width:0;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;isolation:isolate}
+.hero-video{position:absolute;inset:0;width:100%;height:100%;overflow:hidden;z-index:0;background:#090909}
+.hero-video video{position:absolute;inset:0;width:100%;height:100%;display:block;object-fit:cover;object-position:center;opacity:0;animation:videoFadeIn 1.5s ease .2s forwards,videoZoom 18s ease-in-out 1.7s infinite alternate}
+@keyframes videoFadeIn{from{opacity:0;transform:scale(1.08)}to{opacity:1;transform:scale(1)}}
+@keyframes videoZoom{from{scale:1}to{scale:1.08}}
+.hero-glow{position:absolute;z-index:1;width:390px;height:390px;border-radius:50%;background:radial-gradient(circle,rgba(198,157,86,.15),rgba(198,157,86,.025) 45%,transparent 70%);filter:blur(8px);pointer-events:none}
+.hero-visual:after{content:"";position:absolute;z-index:2;bottom:15%;left:12%;right:5%;height:1px;background:linear-gradient(90deg,transparent,#bda16b66,transparent);box-shadow:0 18px 35px #d7bd8820;pointer-events:none}
+.bottle-wrap{position:relative;width:160px;height:330px;filter:drop-shadow(0 30px 24px #000);transform-style:preserve-3d}
+.hero-bottle{z-index:2;transform:scale(1.02);animation:float 5s ease-in-out infinite}
+.cap{position:absolute;z-index:3;top:0;left:50%;transform:translateX(-50%);width:61px;height:31px;background:linear-gradient(90deg,#806b43,#e5d4a4 22%,#a98b53 60%,#5d4a2b);border-radius:3px 3px 1px 1px;box-shadow:inset 0 0 5px #fff7}
+.neck{position:absolute;top:29px;left:50%;transform:translateX(-50%);width:43px;height:27px;background:linear-gradient(90deg,#3d3325,#c6b07b 35%,#5a4a30);border:1px solid #b9a16b}
+.bottle{position:absolute;top:52px;left:50%;transform:translateX(-50%);width:148px;height:260px;border:2px solid #c9b98e88;border-radius:7px 7px 12px 12px;background:linear-gradient(90deg,rgba(211,197,164,.24),rgba(12,12,12,.87) 17%,rgba(19,18,16,.95) 76%,rgba(210,193,151,.2));box-shadow:inset 5px 0 9px #fff2,inset -5px 0 8px #fff1,0 0 20px #d6b77713;overflow:hidden}
+.bottle:before{content:"";position:absolute;inset:5px;border:1px solid #e4d5b455;border-radius:3px}
+.bottle-shine{position:absolute;left:7px;top:10px;bottom:10px;width:5px;background:linear-gradient(transparent,#fff8,transparent);filter:blur(2px)}
+.label{position:absolute;top:82px;left:12px;right:12px;height:91px;border:1px solid #bda36b66;display:flex;align-items:center;justify-content:center;flex-direction:column;color:#e6dfd0;z-index:2;background:linear-gradient(90deg,#171614,#0c0c0b,#171614)}
+.label b{font-size:13px;letter-spacing:.23em;font-weight:400}
+.label small{font-size:6px;letter-spacing:.32em;margin-top:7px}
+.label i{width:20px;height:1px;background:var(--gold);margin:9px 0}
+.label span{font-size:5px;letter-spacing:.2em;color:#b5a78a}
+.liquid{position:absolute;bottom:0;left:0;right:0;height:26%;background:linear-gradient(90deg,#8d5e2d99,#c89a4d44,#78502288);opacity:.6}
+.bottle-shadow{position:absolute;bottom:-9px;left:20px;right:20px;height:12px;background:#c8a66c44;filter:blur(12px)}
+.smoke{position:absolute;z-index:1;width:260px;height:100px;background:radial-gradient(ellipse,#d9d1c31b,transparent 70%);filter:blur(12px);transform:rotate(-25deg);pointer-events:none}
+.smoke-one{top:24%;right:0}
+.smoke-two{bottom:17%;left:5%;transform:rotate(20deg)}
+.petal{position:absolute;z-index:2;width:17px;height:28px;border-radius:100% 0 100% 0;background:linear-gradient(140deg,#b5a071,#211b17 70%);opacity:.6;filter:blur(.3px);pointer-events:none}
+.petal-a{top:27%;left:24%;transform:rotate(24deg)}
+.petal-b{right:12%;top:35%;transform:rotate(66deg) scale(.7)}
+.petal-c{bottom:26%;right:19%;transform:rotate(-32deg) scale(.6)}
+.hero-side-note{position:absolute;z-index:3;right:0;bottom:19%;font-size:7px;letter-spacing:.2em;color:#a8a095;writing-mode:vertical-rl;pointer-events:none}
+.hero-side-note span{color:var(--gold);margin-top:10px}
+.hero-bottom{position:absolute;bottom:25px;left:9%;right:9%;display:flex;align-items:center;gap:13px;color:#77736c;font-size:7px;letter-spacing:.2em}
+.scroll-line{height:1px;width:54px;background:linear-gradient(90deg,var(--gold),transparent)}
+.hero-bottom span:last-child{margin-left:auto}
+
+.intro{padding-top:130px;padding-bottom:100px;background:#0b0b0a}
+.section-kicker{font-size:8px;color:var(--gold);letter-spacing:.22em}
+.intro-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:12%;align-items:end;margin-top:30px}
+.intro h2{font-size:clamp(34px,4.5vw,58px);margin:0}
+.intro-grid p{max-width:310px;margin:0 0 6px}
+.feature-strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-top:75px;padding:18px 0;display:flex;justify-content:space-between;color:#8e887d;font-size:7px;letter-spacing:.2em}
+.collection{padding-top:110px;padding-bottom:120px;background:#090909}
+.section-heading{display:flex;justify-content:space-between;align-items:end;margin-bottom:36px}
+.section-heading .eyebrow{margin-bottom:13px}
+.section-heading h2{font-size:clamp(32px,4vw,48px);margin:0}
+.text-link{font-size:7px;letter-spacing:.18em;color:#c7bfae;border-bottom:1px solid var(--line);padding-bottom:8px}
+.text-link span{color:var(--gold);font-size:12px;margin-left:12px}
+.product-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}
+.product-card{min-width:0}
+.product-image{height:300px;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;background:radial-gradient(ellipse at 50% 45%,#33291e,#171512 48%,#10100f 80%);border:1px solid #ffffff08}
+.product-image:after{content:"";position:absolute;bottom:23px;left:20%;right:20%;height:1px;background:linear-gradient(90deg,transparent,#d7bd8855,transparent)}
+.image-amber{background:radial-gradient(ellipse at 50% 45%,#40301a,#17130e 55%,#10100f)}
+.image-blush{background:radial-gradient(ellipse at 50% 45%,#3a2827,#171211 55%,#10100f)}
+.product-tag{position:absolute;top:15px;left:15px;font-size:6px;letter-spacing:.16em;color:#c9b990;border:1px solid #d7bd8833;padding:6px 8px}
+.mini-bottle{position:relative;width:76px;height:162px;filter:drop-shadow(0 20px 14px #000);transition:transform .5s}
+.product-image:hover .mini-bottle{transform:translateY(-7px) rotate(-2deg)}
+.mini-cap{position:absolute;top:0;left:50%;transform:translateX(-50%);width:30px;height:20px;background:linear-gradient(90deg,#594a31,#e0d1a5,#655333);border-radius:2px}
+.mini-neck{position:absolute;top:18px;left:50%;transform:translateX(-50%);width:22px;height:15px;background:linear-gradient(90deg,#51442e,#cbb77d,#51442e)}
+.mini-body{position:absolute;top:31px;left:0;right:0;height:126px;border:1.5px solid #d5c69c99;border-radius:4px 4px 8px 8px;background:linear-gradient(90deg,#b2a17c55,#10100f 20%,#0b0b0b 80%,#c9b88b55);display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:inset 4px 0 6px #fff2}
+.mini-body:after{content:"";position:absolute;inset:4px;border:1px solid #c9b88b44}
+.mini-body b{font-size:7px;letter-spacing:.15em;font-weight:400;z-index:1}
+.mini-body small{font-size:5px;letter-spacing:.2em;margin-top:5px;color:var(--gold);z-index:1}
+.bottle-amber .mini-body{background:linear-gradient(90deg,#b88b4b99,#372412,#a36e2e66)}
+.bottle-blush .mini-body{background:linear-gradient(90deg,#d3a5a055,#291c20,#9b6c6d66)}
+.quick-add{position:absolute;bottom:12px;left:50%;transform:translate(-50%,12px);opacity:0;border:1px solid #d7bd8866;background:#0a0a09cc;color:var(--gold);font-size:7px;letter-spacing:.14em;padding:9px 13px;white-space:nowrap;transition:.25s;z-index:2}
+.product-image:hover .quick-add{opacity:1;transform:translate(-50%,0)}
+.product-meta{display:flex;justify-content:space-between;align-items:start;padding:15px 2px}
+.product-meta h3{font-size:9px;letter-spacing:.13em;margin:0 0 6px;font-weight:500}
+.product-meta p{font-size:8px;color:#817d76;margin:0}
+.product-meta strong{font-size:9px;color:#d8c7a5;font-weight:500}
+.notes{padding-top:105px;padding-bottom:110px;background:#0d0d0c;display:grid;grid-template-columns:1fr 1fr;gap:12%;align-items:center}
+.notes-art{height:390px;position:relative;display:grid;place-items:center;background:radial-gradient(ellipse,#2a2117 0%,#141310 42%,transparent 72%);overflow:hidden}
+.gold-orbit{position:absolute;width:220px;height:220px;border:1px solid #c9a45b66;border-radius:50%;transform:rotate(-32deg) scaleX(1.45)}
+.orbit-two{width:290px;height:290px;transform:rotate(52deg) scaleX(1.1);border-color:#c9a45b30}
+.note-drop{width:56px;height:80px;background:linear-gradient(140deg,#f0dca4,#9b6a2e 50%,#e8d29b);border-radius:70% 5% 65% 50%;transform:rotate(45deg);box-shadow:0 0 45px #d6ac5b33}
+.art-caption{position:absolute;bottom:20px;font-size:7px;letter-spacing:.3em;color:#827766}
+.notes-copy .eyebrow{margin-bottom:18px}
+.notes h2,.feature h2{font-size:clamp(36px,4.3vw,56px);margin:0 0 18px}
+.notes-copy>p:not(.eyebrow){max-width:350px}
+.note-list{margin-top:28px;border-top:1px solid var(--line)}
+.note-list>div{display:grid;grid-template-columns:28px 1fr 18px;align-items:center;gap:10px;border-bottom:1px solid var(--line);padding:14px 0}
+.note-list span{font-size:7px;color:var(--gold)}
+.note-list strong{font-size:9px;font-weight:500;letter-spacing:.06em}
+.note-list small{grid-column:2;color:#817d76;font-size:7px;margin-top:-4px}
+.note-list b{grid-column:3;grid-row:1/3;color:var(--gold);font-weight:400;font-size:13px}
+.feature{min-height:520px;padding-top:95px;padding-bottom:95px;display:grid;grid-template-columns:1fr 1fr;gap:10%;align-items:center;background:#090909}
+.feature-copy>p:not(.eyebrow){max-width:310px;margin-bottom:25px}
+.btn-outline{border:1px solid #bda16b88;color:#d8c7a5}
+.btn-outline:hover{background:#d7bd881a;transform:translateY(-2px)}
+.feature-visual{height:360px;position:relative;display:grid;place-items:center;background:radial-gradient(ellipse,#2a2116 0%,#11100e 45%,transparent 72%)}
+.feature-ring{position:absolute;width:270px;height:270px;border:1px solid #c8a45c45;border-radius:50%;box-shadow:0 0 50px #c8a45c0c}
+.feature-bottle{transform:scale(.8);animation:float 5.5s ease-in-out infinite}
+.cta{padding-top:105px;padding-bottom:110px;text-align:center;background:linear-gradient(120deg,#100e0b,#17130e 55%,#0a0a09);overflow:hidden}
+.cta:before,.cta:after{content:"";position:absolute;width:500px;height:1px;background:linear-gradient(90deg,transparent,#c5a46755,transparent);top:30%;left:-100px;transform:rotate(-25deg)}
+.cta:after{top:auto;left:auto;right:-100px;bottom:25%;transform:rotate(-25deg)}
+.cta-inner{position:relative;z-index:1}
+.cta .eyebrow{justify-content:center}
+.cta h2{font-size:clamp(38px,5vw,66px);margin:0 0 15px}
+.cta-inner>p:not(.eyebrow){margin:0 auto 25px}
+.footer{padding:50px 9% 20px;background:#080808;border-top:1px solid #c8a45c55}
+.footer-top{display:grid;grid-template-columns:1fr 1fr 1.2fr;gap:30px;align-items:start;padding-bottom:48px}
+.footer-top>p{font-family:var(--serif);font-size:16px;color:#bdb6a9;margin:0}
+.newsletter label{font-size:7px;letter-spacing:.2em;color:var(--gold)}
+.newsletter>div{display:flex;border-bottom:1px solid #777064;margin-top:12px}
+.newsletter input{background:transparent;border:0;outline:0;color:white;padding:10px 0;font-size:9px;flex:1;min-width:0}
+.newsletter button{border:0;background:none;color:var(--gold);font-size:17px}
+.newsletter small{display:block;color:var(--gold);font-size:8px;margin-top:6px;min-height:10px}
+.footer-bottom{border-top:1px solid #ffffff18;padding-top:18px;display:flex;justify-content:space-between;gap:15px;color:#77736d;font-size:6px;letter-spacing:.16em}
+.footer-bottom div{display:flex;gap:20px}
+.footer-bottom a{transition:.2s}
+.toast{position:fixed;bottom:25px;left:50%;transform:translate(-50%,20px);opacity:0;pointer-events:none;background:#e2c995;color:#17130c;padding:12px 18px;font-size:10px;letter-spacing:.04em;z-index:50;transition:.3s;box-shadow:0 8px 25px #0008}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .8s ease,transform .8s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+@keyframes float{0%,100%{translate:0 0}50%{translate:0 -11px}}
+
+@media(max-width:850px){
+  .site-header{padding:0 5%;height:68px}
+  .nav{gap:17px;margin-left:0}
+  .section{padding-left:7%;padding-right:7%}
+  .hero{grid-template-columns:1fr 1fr;min-height:580px}
+  .hero h1{font-size:clamp(34px,5.5vw,52px)}
+  .product-image{height:250px}
+  .notes{gap:7%}
+  .footer{padding-left:7%;padding-right:7%}
+}
+@media(max-width:620px){
+  .site-header{height:64px}
+  .menu-toggle{display:block;order:3}
+  .header-actions{gap:9px;margin-left:auto;margin-right:12px}
+  .nav{display:none;position:absolute;top:64px;left:0;right:0;background:#0b0b0bf5;border-bottom:1px solid var(--line);padding:20px 7%;flex-direction:column;gap:20px}
+  .nav.open{display:flex}
+  .nav a{font-size:11px}
+  .brand{font-size:14px}
+  .hero{height:auto;min-height:760px;grid-template-columns:1fr;padding-top:115px;padding-bottom:80px;text-align:left}
+  .hero-copy{margin-top:0;max-width:100%}
+  .hero h1{font-size:clamp(39px,11vw,58px)}
+  .hero-desc{max-width:290px}
+  .hero-visual{height:380px;margin-top:-10px}
+  .hero-video video{object-fit:contain}
+  .hero-side-note{right:4%;bottom:20%}
+  .hero-bottom{left:7%;right:7%;bottom:18px}
+  .intro{padding-top:80px;padding-bottom:70px}
+  .intro-grid{grid-template-columns:1fr;gap:20px}
+  .intro h2{font-size:42px}
+  .feature-strip{margin-top:45px;gap:15px;flex-wrap:wrap;font-size:6px}
+  .collection{padding-top:75px;padding-bottom:80px}
+  .section-heading{align-items:start;gap:20px;flex-direction:column}
+  .product-grid{grid-template-columns:1fr;gap:25px}
+  .product-image{height:300px}
+  .quick-add{opacity:1;transform:translate(-50%,0)}
+  .notes{grid-template-columns:1fr;padding-top:75px;padding-bottom:75px;gap:35px}
+  .notes-art{height:260px}
+  .notes h2,.feature h2{font-size:44px}
+  .feature{grid-template-columns:1fr;padding-top:75px;padding-bottom:65px;gap:15px}
+  .feature-visual{height:300px;order:-1}
+  .feature-bottle{transform:scale(.72)}
+  .cta{padding-top:80px;padding-bottom:85px}
+  .cta h2{font-size:43px}
+  .footer{padding:38px 7% 18px}
+  .footer-top{grid-template-columns:1fr;gap:25px;padding-bottom:32px}
+  .footer-bottom{flex-wrap:wrap;line-height:1.8}
+  .footer-bottom div{order:3;width:100%;justify-content:space-between}
+  .reveal{transform:translateY(14px)}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+  .reveal{opacity:1;transform:none}
+}
+/* Full screen hero section */
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+/* Video full background */
+.hero-visual {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.hero-video video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Dark overlay for readable text */
+.hero-visual::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 1;
+}
+
+/* Text above video */
+.hero-copy {
+  position: relative;
+  z-index: 2;
+}
+
+.about-bottle-photo {
+  position: relative;
+  z-index: 4;
+  width: 420px;
+  height: 560px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: bottlePhotoFloat 5s ease-in-out infinite;
+}
+
+.about-bottle-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+
+  filter:
+    drop-shadow(0 35px 35px rgba(0,0,0,0.7))
+    drop-shadow(0 0 35px rgba(190,135,55,0.18));
+}
+
+@keyframes bottlePhotoFloat {
+
+  0%, 100% {
+    transform: translateY(0) rotate(-1deg);
+  }
+
+  50% {
+    transform: translateY(-14px) rotate(1deg);
+  }
+
+}
+/* =========================================
+   VELORA ABOUT - FULL BACKGROUND IMAGE
+   ========================================= */
+
+section.velora-about#about {
+    position: relative !important;
+
+    width: 100% !important;
+    min-height: 100vh !important;
+
+    margin: 0 !important;
+
+    background-image:
+        linear-gradient(
+            90deg,
+            rgba(5, 5, 5, 0.92) 0%,
+            rgba(5, 5, 5, 0.75) 35%,
+            rgba(5, 5, 5, 0.35) 65%,
+            rgba(5, 5, 5, 0.15) 100%
+        ),
+        url("./image/velora%20img2.jpeg") !important;
+
+    background-size: cover !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+
+    overflow: hidden !important;
+}
+
+
+/* Keep your text above the background */
+
+.velora-about > * {
+    position: relative;
+    z-index: 2;
+}
+
+
+/* If the old bottle/decorative image is still there,
+   hide it because your new image already contains the perfume */
+
+.velora-about .about-bottle-photo,
+.velora-about .about-product {
+    display: none !important;
+}
+/* =========================================
+   FULL FRAME PERFUME IMAGE
+   ========================================= */
+
+.product-image {
+    position: relative;
+    width: 100%;
+    height: 420px;
+    overflow: hidden;
+    padding: 0;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    background: #080808;
+}
+
+.real-perfume-image {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    /* COVER ENTIRE FRAME */
+    object-fit: cover;
+    object-position: center;
+
+    display: block;
+
+    padding: 0;
+    
+    transition:
+        transform 0.6s ease,
+        filter 0.6s ease;
+}
+
+
+/* Luxury hover */
+
+.product-card:hover .real-perfume-image {
+    transform: scale(1.05);
+
+    filter:
+        brightness(1.08)
+        contrast(1.05);
+}
+
+
+/* Product tag stays above image */
+
+.product-tag {
+    position: absolute;
+    top: 18px;
+    left: 18px;
+    z-index: 5;
+}
+
+
+/* Quick add stays above image */
+
+.quick-add {
+    position: absolute;
+    bottom: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 5;
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    .product-image {
+        height: 380px;
+    }
+
+    .real-perfume-image {
+        object-fit: cover;
+    }
+
+}
+
+/* =====================================================
+   VELORA — FULL SCREEN DISCOVER EXPERIENCE
+   ===================================================== */
+
+.velora-discover-full {
+    position: relative;
+
+    width: 100%;
+    height: calc(100vh - 80px);
+    min-height: 600px;
+
+    overflow: hidden;
+
+    background: #050505;
+}
+
+
+/* =====================================================
+   FULL BACKGROUND VIDEO
+   ===================================================== */
+
+.discover-full-video {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    object-position: center center;
+
+    z-index: 0;
+
+    display: block;
+}
+
+
+/* =====================================================
+   DARK LUXURY OVERLAY
+   ===================================================== */
+
+.discover-full-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 1;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(5,5,5,0.88) 0%,
+            rgba(5,5,5,0.62) 30%,
+            rgba(5,5,5,0.22) 65%,
+            rgba(5,5,5,0.38) 100%
+        ),
+        linear-gradient(
+            180deg,
+            rgba(0,0,0,0.15),
+            rgba(0,0,0,0.35)
+        );
+}
+
+
+/* =====================================================
+   CONTENT
+   ===================================================== */
+
+.discover-full-content {
+    position: absolute;
+
+    z-index: 3;
+
+    left: 8%;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    width: min(480px, 42vw);
+}
+
+
+/* =====================================================
+   SMALL LABEL
+   ===================================================== */
+
+.discover-label {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin: 0 0 20px;
+
+    color: #c8a568;
+
+    font-family: "DM Sans", sans-serif;
+
+    font-size: 9px;
+
+    font-weight: 600;
+
+    letter-spacing: 2.5px;
+
+    text-transform: uppercase;
+}
+
+.discover-label span {
+    width: 24px;
+    height: 1px;
+
+    background: #c8a568;
+}
+
+
+/* =====================================================
+   MAIN HEADING
+   ===================================================== */
+
+.discover-full-content h2 {
+    margin: 0;
+
+    color: #f4f0e8;
+
+    font-family: "Playfair Display", serif;
+
+    font-size: clamp(42px, 4.2vw, 68px);
+
+    font-weight: 400;
+
+    line-height: 0.98;
+
+    letter-spacing: -2px;
+}
+
+.discover-full-content h2 em {
+    display: block;
+
+    color: #c9a367;
+
+    font-weight: 400;
+}
+
+
+/* =====================================================
+   DESCRIPTION
+   ===================================================== */
+
+.discover-description {
+    max-width: 390px;
+
+    margin: 22px 0 0;
+
+    color: rgba(255,255,255,0.68);
+
+    font-family: "DM Sans", sans-serif;
+
+    font-size: 12px;
+
+    line-height: 1.7;
+}
+
+
+/* =====================================================
+   THREE NOTES
+   ===================================================== */
+
+.discover-mini-notes {
+    display: flex;
+
+    gap: 0;
+
+    margin-top: 28px;
+
+    border-top: 1px solid rgba(255,255,255,0.16);
+
+    border-bottom: 1px solid rgba(255,255,255,0.16);
+
+    width: 100%;
+}
+
+.discover-mini-notes > div {
+    flex: 1;
+
+    padding: 13px 14px 13px 0;
+}
+
+.discover-mini-notes > div:not(:last-child) {
+    margin-right: 14px;
+
+    border-right: 1px solid rgba(255,255,255,0.12);
+}
+
+.discover-mini-notes small {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: #b99355;
+
+    font-family: "DM Sans", sans-serif;
+
+    font-size: 7px;
+
+    letter-spacing: 1.5px;
+}
+
+.discover-mini-notes strong {
+    display: block;
+
+    color: rgba(255,255,255,0.75);
+
+    font-family: "DM Sans", sans-serif;
+
+    font-size: 9px;
+
+    font-weight: 400;
+
+    line-height: 1.4;
+}
+
+
+/* =====================================================
+   EXPLORE BUTTON
+   ===================================================== */
+
+.discover-explore {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-top: 25px;
+
+    padding-bottom: 7px;
+
+    color: #e8dcc8;
+
+    border-bottom: 1px solid #b8945c;
+
+    text-decoration: none;
+
+    font-family: "DM Sans", sans-serif;
+
+    font-size: 9px;
+
+    font-weight: 600;
+
+    letter-spacing: 1.8px;
+
+    transition: 0.3s ease;
+}
+
+.discover-explore span {
+    font-size: 15px;
+
+    transition: transform 0.3s ease;
+}
+
+.discover-explore:hover {
+    color: #d5ae6e;
+}
+
+.discover-explore:hover span {
+    transform: translate(4px, -3px);
+}
+
+
+/* =====================================================
+   PAGE NUMBER
+   ===================================================== */
+
+.discover-page-number {
+    position: absolute;
+
+    right: 5%;
+
+    bottom: 30px;
+
+    z-index: 4;
+
+    color: rgba(255,255,255,0.45);
+
+    font-family: "DM Sans", sans-serif;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+}
+
+
+/* =====================================================
+   RESPONSIVE
+   ===================================================== */
+
+@media (max-width: 900px) {
+
+    .velora-discover-full {
+        height: calc(100vh - 70px);
+        min-height: 600px;
+    }
+
+    .discover-full-content {
+        left: 7%;
+        width: 55%;
+    }
+
+    .discover-full-content h2 {
+        font-size: clamp(38px, 6vw, 58px);
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .velora-discover-full {
+        height: calc(100svh - 65px);
+        min-height: 600px;
+    }
+
+    .discover-full-overlay {
+        background:
+            linear-gradient(
+                90deg,
+                rgba(5,5,5,0.88),
+                rgba(5,5,5,0.48)
+            ),
+            linear-gradient(
+                180deg,
+                rgba(0,0,0,0.2),
+                rgba(0,0,0,0.6)
+            );
+    }
+
+    .discover-full-content {
+        left: 25px;
+        right: 25px;
+
+        width: auto;
+
+        top: 50%;
+    }
+
+    .discover-full-content h2 {
+        font-size: 42px;
+        letter-spacing: -1.5px;
+    }
+
+    .discover-description {
+        font-size: 11px;
+        max-width: 330px;
+    }
+
+    .discover-mini-notes {
+        display: block;
+    }
+
+    .discover-mini-notes > div {
+        padding: 9px 0;
+        margin: 0 !important;
+
+        border-right: none !important;
+    }
+
+    .discover-mini-notes > div:not(:last-child) {
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .discover-page-number {
+        right: 25px;
+        bottom: 20px;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =====================================================
+   VELORA DISCOVER — TRUE FULL SCREEN
+   ===================================================== */
+
+.velora-discover-full {
+    position: relative;
+
+    width: 100vw;
+    height: 100vh;
+    min-height: 100vh;
+
+    margin: 0;
+    padding: 0;
+
+    overflow: hidden;
+
+    display: block;
+}
+
+
+/* FULL VIDEO */
+
+.discover-full-video {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+
+    z-index: 0;
+}
+
+
+/* OVERLAY */
+
+.discover-full-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 1;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(5,5,5,0.82) 0%,
+            rgba(5,5,5,0.52) 35%,
+            rgba(5,5,5,0.15) 70%,
+            rgba(5,5,5,0.35) 100%
+        );
+}
+
+
+/* CONTENT */
+
+.discover-full-content {
+    position: absolute;
+
+    z-index: 3;
+
+    left: 8vw;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    width: 430px;
+
+    max-width: 40vw;
+}
+
+
+/* HEADING */
+
+.discover-full-content h2 {
+    font-size: clamp(40px, 4vw, 64px);
+
+    line-height: 0.98;
+
+    margin: 0;
+
+    letter-spacing: -2px;
+}
+
+
+/* DESCRIPTION */
+
+.discover-description {
+    font-size: 12px;
+
+    max-width: 380px;
+
+    line-height: 1.7;
+
+    margin-top: 20px;
+}
+
+
+/* NOTES */
+
+.discover-mini-notes {
+    margin-top: 25px;
+}
+
+
+/* PAGE NUMBER */
+
+.discover-page-number {
+    position: absolute;
+
+    right: 5vw;
+    bottom: 30px;
+
+    z-index: 5;
+}
+
+
+/* =====================================================
+   REMOVE SECTION SPACING
+   ===================================================== */
+
+#notes {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+
+/* =====================================================
+   MOBILE
+   ===================================================== */
+
+@media (max-width: 600px) {
+
+    .velora-discover-full {
+        width: 100vw;
+        height: 100svh;
+        min-height: 100svh;
+    }
+
+    .discover-full-content {
+        left: 25px;
+        right: 25px;
+
+        width: auto;
+        max-width: none;
+
+        top: 52%;
+    }
+
+    .discover-full-content h2 {
+        font-size: 42px;
+    }
+}
+
+
+
+
+/* =========================================================
+   VELORA DISCOVER ONLY — FULL SCREEN
+   DOES NOT AFFECT HOME / SHOP / ABOUT / CONTACT
+   ========================================================= */
+
+#notes {
+    position: relative;
+    width: 100% !important;
+    max-width: none !important;
+
+    min-height: calc(100vh - 80px);
+    height: calc(100vh - 80px);
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    overflow: hidden;
+}
+
+
+/* FULL BACKGROUND */
+
+#notes .notes-art {
+    position: absolute !important;
+
+    inset: 0 !important;
+
+    width: 100% !important;
+    height: 100% !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    z-index: 1;
+
+    overflow: hidden;
+}
+
+
+/* BACKGROUND VIDEO */
+
+#notes .notes-art video {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+
+    display: block;
+}
+
+
+/* DARK CINEMATIC OVERLAY */
+
+#notes .notes-art::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0,0,0,0.72) 0%,
+            rgba(0,0,0,0.45) 38%,
+            rgba(0,0,0,0.12) 72%,
+            rgba(0,0,0,0.30) 100%
+        );
+
+    pointer-events: none;
+
+    z-index: 2;
+}
+
+
+/* DISCOVER TEXT */
+
+#notes .notes-copy {
+    position: relative;
+
+    z-index: 5;
+
+    width: min(500px, 42vw);
+
+    margin-left: 8vw;
+
+    padding: 0;
+
+    transform: translateY(0);
+}
+
+
+/* TITLE */
+
+#notes .notes-copy h2 {
+    max-width: 520px;
+
+    margin: 0;
+
+    font-size: clamp(48px, 5vw, 76px);
+
+    line-height: 0.96;
+
+    letter-spacing: -3px;
+}
+
+
+/* DESCRIPTION */
+
+#notes .notes-copy > p:not(.eyebrow) {
+    max-width: 440px;
+
+    margin-top: 25px;
+
+    font-size: 14px;
+
+    line-height: 1.7;
+}
+
+
+/* NOTE LIST */
+
+#notes .note-list {
+    max-width: 520px;
+
+    margin-top: 30px;
+}
+
+
+/* CAPTION */
+
+#notes .art-caption {
+    position: absolute;
+
+    z-index: 6;
+
+    right: 40px;
+    bottom: 30px;
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+}
+
+
+/* =========================================================
+   IMPORTANT:
+   RESTORE NORMAL SITE-WIDE HEADER
+   ========================================================= */
+
+.site-header {
+    width: 100%;
+    max-width: none;
+}
+
+
+/* Keep logo on left */
+
+.site-header .brand {
+    flex-shrink: 0;
+}
+
+
+/* Keep navigation centered */
+
+.site-header .nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 30px;
+}
+
+
+/* Keep icons on right */
+
+.site-header .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    margin-left: auto;
+}
+
+
+/* =========================================================
+   OTHER SECTIONS — NORMAL FULL WIDTH
+   ========================================================= */
+
+.hero,
+.collection,
+.velora-about,
+.feature,
+.cta,
+.footer {
+    width: 100%;
+    max-width: none;
+}
+
+
+/* =========================================================
+   DESKTOP
+   ========================================================= */
+
+@media (min-width: 901px) {
+
+    #notes {
+        display: flex;
+
+        align-items: center;
+    }
+
+    #notes .notes-copy {
+        margin-left: 8vw;
+    }
+
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    #notes {
+        min-height: calc(100vh - 70px);
+        height: calc(100vh - 70px);
+    }
+
+    #notes .notes-copy {
+        width: 70vw;
+        margin-left: 7vw;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    #notes {
+        min-height: 100svh;
+        height: 100svh;
+    }
+
+    #notes .notes-copy {
+        width: 82vw;
+        margin-left: 9vw;
+    }
+
+    #notes .notes-copy h2 {
+        font-size: clamp(42px, 12vw, 62px);
+        letter-spacing: -2px;
+    }
+
+    #notes .art-caption {
+        right: 20px;
+        bottom: 20px;
+    }
+
+}
+
+
+/* =========================================
+   VELORA FULL SCREEN IMAGE SECTION
+   ========================================= */
+
+.velora-fullscreen-feature {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    min-height: 700px;
+    overflow: hidden;
+    background: #050505;
+}
+
+
+/* FULL BACKGROUND IMAGE */
+
+.fullscreen-perfume-image {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    object-position: center center;
+
+    z-index: 1;
+
+    display: block;
+
+    animation: perfumeZoom 12s ease-in-out infinite alternate;
+}
+
+
+/* DARK OVERLAY */
+
+.velora-fullscreen-feature .fullscreen-overlay {
+    position: absolute;
+    inset: 0;
+
+    z-index: 2;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(4, 5, 8, 0.88) 0%,
+            rgba(4, 5, 8, 0.60) 32%,
+            rgba(4, 5, 8, 0.20) 65%,
+            rgba(4, 5, 8, 0.05) 100%
+        );
+}
+
+
+/* GOLD LIGHT */
+
+.velora-fullscreen-feature .fullscreen-overlay::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at 75% 55%,
+            rgba(220, 160, 75, 0.20),
+            transparent 35%
+        );
+}
+
+
+/* TEXT */
+
+.velora-fullscreen-feature .fullscreen-content {
+    position: relative;
+
+    z-index: 5;
+
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+
+    padding-left: 8vw;
+    padding-right: 50vw;
+}
+
+
+/* SMALL TITLE */
+
+.velora-fullscreen-feature .eyebrow {
+    margin-bottom: 25px;
+
+    color: #d1aa6d;
+
+    font-family: "DM Sans", sans-serif;
+
+    font-size: 11px;
+    font-weight: 600;
+
+    letter-spacing: 3px;
+}
+
+
+/* MAIN TITLE */
+
+.velora-fullscreen-feature h2 {
+    margin: 0;
+
+    color: #f5f1ea;
+
+    font-family: "Playfair Display", serif;
+
+    font-size: clamp(55px, 7vw, 110px);
+
+    font-weight: 400;
+
+    line-height: 0.95;
+
+    letter-spacing: -4px;
+}
+
+.velora-fullscreen-feature h2 em {
+    color: #d5aa69;
+
+    font-weight: 400;
+}
+
+
+/* DESCRIPTION */
+
+.velora-fullscreen-feature .fullscreen-description {
+    max-width: 430px;
+
+    margin: 35px 0;
+
+    color: rgba(255,255,255,0.72);
+
+    font-family: "DM Sans", sans-serif;
+
+    font-size: 15px;
+
+    line-height: 1.8;
+}
+
+
+/* BUTTON */
+
+.velora-fullscreen-feature .btn {
+    display: inline-flex;
+
+    align-items: center;
+    gap: 15px;
+
+    padding: 15px 24px;
+
+    color: #f1ece4;
+
+    border: 1px solid rgba(255,255,255,0.65);
+
+    text-decoration: none;
+
+    font-family: "DM Sans", sans-serif;
+
+    font-size: 10px;
+
+    font-weight: 600;
+
+    letter-spacing: 2px;
+
+    transition: 0.4s ease;
+}
+
+.velora-fullscreen-feature .btn:hover {
+    background: rgba(201, 151, 76, 0.18);
+
+    border-color: #d1a05d;
+}
+
+.velora-fullscreen-feature .btn span {
+    transition: 0.3s ease;
+}
+
+.velora-fullscreen-feature .btn:hover span {
+    transform: translate(5px, -3px);
+}
+
+
+/* CINEMATIC ZOOM */
+
+@keyframes perfumeZoom {
+
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.07);
+    }
+
+}
+
+
+/* =========================================
+   TABLET
+   ========================================= */
+
+@media (max-width: 900px) {
+
+    .velora-fullscreen-feature .fullscreen-content {
+        padding-left: 7vw;
+        padding-right: 35vw;
+    }
+
+    .fullscreen-perfume-image {
+        object-position: 65% center;
+    }
+
+}
+
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 600px) {
+
+    .velora-fullscreen-feature {
+        height: 100svh;
+        min-height: 600px;
+    }
+
+    .fullscreen-perfume-image {
+        object-position: 65% center;
+    }
+
+    .velora-fullscreen-feature .fullscreen-overlay {
+        background:
+            linear-gradient(
+                90deg,
+                rgba(4,5,8,0.88),
+                rgba(4,5,8,0.45)
+            );
+    }
+
+    .velora-fullscreen-feature .fullscreen-content {
+        padding: 30px;
+        padding-right: 25px;
+    }
+
+    .velora-fullscreen-feature h2 {
+        font-size: 52px;
+        letter-spacing: -2px;
+    }
+
+    .velora-fullscreen-feature .fullscreen-description {
+        font-size: 13px;
+        max-width: 330px;
+    }
+
+}
+
+
+/* =========================================
+   VELORA SIGNATURE CONTACT
+   ========================================= */
+
+.signature-contact {
+
+  position: relative;
+
+  min-height: 100vh;
+
+  width: 100%;
+
+  overflow: hidden;
+
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  align-items: center;
+
+  background: #050505;
+}
+
+
+/* BACKGROUND */
+
+.signature-bg {
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    radial-gradient(
+      circle at 75% 50%,
+      rgba(166,112,45,0.18),
+      transparent 30%
+    ),
+    linear-gradient(
+      120deg,
+      #050505,
+      #0c0c0c,
+      #050505
+    );
+
+  z-index: 0;
+}
+
+
+/* GOLD LIGHT */
+
+.signature-glow {
+
+  position: absolute;
+
+  width: 600px;
+  height: 600px;
+
+  right: 8%;
+
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(211,157,78,0.16),
+      rgba(211,157,78,0.04) 40%,
+      transparent 70%
+    );
+
+  filter: blur(20px);
+
+  animation: signatureGlow 5s ease-in-out infinite alternate;
+
+  z-index: 1;
+}
+
+
+@keyframes signatureGlow {
+
+  from {
+    transform: translateY(-50%) scale(0.95);
+  }
+
+  to {
+    transform: translateY(-50%) scale(1.08);
+  }
+
+}
+
+
+/* =========================================
+   TEXT
+   ========================================= */
+
+.signature-content {
+
+  position: relative;
+
+  z-index: 5;
+
+  padding-left: 9vw;
+
+  padding-right: 40px;
+}
+
+
+.signature-label {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  color: #cda56a;
+
+  font-family: "DM Sans", sans-serif;
+
+  font-size: 10px;
+
+  letter-spacing: 3px;
+
+  font-weight: 600;
+
+  margin-bottom: 28px;
+}
+
+
+.signature-label span {
+
+  width: 35px;
+
+  height: 1px;
+
+  background: #cda56a;
+
+}
+
+
+.signature-content h2 {
+
+  max-width: 700px;
+
+  margin: 0;
+
+  color: #f5f1e9;
+
+  font-family: "Playfair Display", serif;
+
+  font-size: clamp(
+    50px,
+    6vw,
+    90px
+  );
+
+  font-weight: 400;
+
+  line-height: 0.98;
+
+  letter-spacing: -3px;
+}
+
+
+.signature-content h2 em {
+
+  color: #d2aa6b;
+
+  font-weight: 400;
+}
+
+
+.signature-description {
+
+  max-width: 440px;
+
+  margin: 35px 0;
+
+  color: rgba(255,255,255,0.58);
+
+  font-family: "DM Sans", sans-serif;
+
+  font-size: 14px;
+
+  line-height: 1.8;
+}
+
+
+/* =========================================
+   BUTTON
+   ========================================= */
+
+.signature-button {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 16px;
+
+  padding: 16px 25px;
+
+  border: 1px solid rgba(207,164,99,0.7);
+
+  color: #e9ddca;
+
+  text-decoration: none;
+
+  font-family: "DM Sans", sans-serif;
+
+  font-size: 10px;
+
+  font-weight: 600;
+
+  letter-spacing: 2px;
+
+  transition: 0.4s ease;
+}
+
+
+.signature-button span {
+
+  font-size: 17px;
+
+  transition: 0.3s ease;
+}
+
+
+.signature-button:hover {
+
+  background: #c99b5b;
+
+  color: #080808;
+
+}
+
+
+.signature-button:hover span {
+
+  transform: translate(5px,-4px);
+}
+
+
+/* =========================================
+   EMAIL
+   ========================================= */
+
+.signature-form {
+
+  max-width: 440px;
+
+  margin-top: 55px;
+}
+
+
+.signature-form label {
+
+  display: block;
+
+  margin-bottom: 15px;
+
+  color: rgba(255,255,255,0.42);
+
+  font-family: "DM Sans", sans-serif;
+
+  font-size: 9px;
+
+  letter-spacing: 2px;
+}
+
+
+.signature-input {
+
+  display: flex;
+
+  align-items: center;
+
+  border-bottom: 1px solid rgba(255,255,255,0.3);
+
+  transition: 0.3s ease;
+}
+
+
+.signature-input:focus-within {
+
+  border-color: #cda56a;
+}
+
+
+.signature-input input {
+
+  width: 100%;
+
+  padding: 14px 0;
+
+  border: none;
+
+  outline: none;
+
+  background: transparent;
+
+  color: white;
+
+  font-family: "DM Sans", sans-serif;
+
+  font-size: 13px;
+}
+
+
+.signature-input input::placeholder {
+
+  color: rgba(255,255,255,0.35);
+}
+
+
+.signature-input button {
+
+  border: none;
+
+  background: transparent;
+
+  color: #d2aa6b;
+
+  font-size: 22px;
+
+  cursor: pointer;
+
+  transition: 0.3s ease;
+}
+
+
+.signature-input button:hover {
+
+  transform: translateX(5px);
+}
+
+
+/* =========================================
+   PERFUME
+   ========================================= */
+
+.signature-visual {
+
+  position: relative;
+
+  z-index: 3;
+
+  height: 700px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+}
+
+
+.signature-perfume {
+
+  position: relative;
+
+  z-index: 5;
+
+  width: min(400px, 70%);
+
+  max-height: 600px;
+
+  object-fit: contain;
+
+  filter:
+    drop-shadow(
+      0 40px 45px rgba(0,0,0,0.8)
+    )
+    drop-shadow(
+      0 0 35px rgba(205,155,79,0.25)
+    );
+
+  animation: perfumeFloat 5s ease-in-out infinite;
+}
+
+
+@keyframes perfumeFloat {
+
+  0%,100% {
+
+    transform:
+      translateY(0)
+      rotate(-2deg);
+
+  }
+
+  50% {
+
+    transform:
+      translateY(-18px)
+      rotate(2deg);
+
+  }
+
+}
+
+
+/* =========================================
+   RING
+   ========================================= */
+
+.signature-ring {
+
+  position: absolute;
+
+  width: 480px;
+  height: 480px;
+
+  border-radius: 50%;
+
+  border: 1px solid rgba(211,169,105,0.25);
+
+  box-shadow:
+    0 0 60px rgba(204,150,70,0.08);
+
+  animation: ringRotate 18s linear infinite;
+}
+
+
+@keyframes ringRotate {
+
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+
+}
+
+
+/* =========================================
+   ORBITS
+   ========================================= */
+
+.signature-orbit {
+
+  position: absolute;
+
+  border-radius: 50%;
+
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+
+.orbit-one {
+
+  width: 560px;
+  height: 250px;
+
+  transform: rotate(25deg);
+}
+
+
+.orbit-two {
+
+  width: 500px;
+  height: 200px;
+
+  transform: rotate(-30deg);
+}
+
+
+/* =========================================
+   FLOATING NOTES
+   ========================================= */
+
+.floating-note {
+
+  position: absolute;
+
+  z-index: 7;
+
+  padding: 8px 13px;
+
+  border: 1px solid rgba(210,165,100,0.35);
+
+  color: rgba(230,205,168,0.7);
+
+  background: rgba(10,10,10,0.45);
+
+  backdrop-filter: blur(5px);
+
+  font-family: "DM Sans", sans-serif;
+
+  font-size: 8px;
+
+  letter-spacing: 2px;
+}
+
+
+.note-one {
+
+  top: 18%;
+
+  right: 15%;
+
+}
+
+
+.note-two {
+
+  left: 15%;
+
+  top: 45%;
+}
+
+
+.note-three {
+
+  right: 12%;
+
+  bottom: 20%;
+}
+
+
+/* =========================================
+   PAGE NUMBER
+   ========================================= */
+
+.signature-number {
+
+  position: absolute;
+
+  right: 35px;
+
+  bottom: 30px;
+
+  z-index: 10;
+
+  color: rgba(255,255,255,0.35);
+
+  font-family: "DM Sans", sans-serif;
+
+  font-size: 9px;
+
+  letter-spacing: 2px;
+}
+
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media(max-width:900px) {
+
+  .signature-contact {
+
+    grid-template-columns: 1fr;
+
+    min-height: 1000px;
+  }
+
+  .signature-content {
+
+    padding: 100px 30px 20px;
+
+  }
+
+  .signature-content h2 {
+
+    font-size: 55px;
+
+  }
+
+  .signature-visual {
+
+    height: 450px;
+
+    margin-top: -30px;
+
+  }
+
+  .signature-perfume {
+
+    width: 300px;
+
+  }
+
+  .signature-ring {
+
+    width: 350px;
+    height: 350px;
+
+  }
+
+}
+
+
+@media(max-width:600px) {
+
+  .signature-content {
+
+    padding: 90px 25px 0;
+
+  }
+
+  .signature-content h2 {
+
+    font-size: 47px;
+
+    letter-spacing: -2px;
+
+  }
+
+  .signature-description {
+
+    font-size: 13px;
+
+  }
+
+  .signature-visual {
+
+    height: 390px;
+
+  }
+
+  .signature-perfume {
+
+    width: 260px;
+
+  }
+
+  .signature-ring {
+
+    width: 310px;
+    height: 310px;
+
+  }
+
+  .floating-note {
+
+    font-size: 7px;
+
+  }
+
+  .note-two {
+
+    left: 5%;
+
+  }
+
+}
+
+/* =========================================
+   VELORA CONTACT SECTION
+   ========================================= */
+
+.velora-contact {
+  position: relative;
+  min-height: 100vh;
+  padding: 140px 7vw 90px;
+  background:
+    radial-gradient(
+      circle at 50% 20%,
+      rgba(184, 137, 67, 0.12),
+      transparent 30%
+    ),
+    linear-gradient(
+      180deg,
+      #080808 0%,
+      #0d0d0d 55%,
+      #070707 100%
+    );
+  overflow: hidden;
+}
+
+/* subtle luxury lines */
+
+.velora-contact::before {
+  content: "";
+  position: absolute;
+  inset: 40px 7vw;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  pointer-events: none;
+}
+
+.velora-contact::after {
+  content: "";
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  left: 50%;
+  top: 10%;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(190,140,65,0.08),
+    transparent 65%
+  );
+  filter: blur(30px);
+  pointer-events: none;
+}
+
+.contact-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 1250px;
+  margin: auto;
+}
+
+/* LABEL */
+
+.contact-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+
+  color: #c7a36a;
+
+  font-family: "DM Sans", sans-serif;
+  font-size: 10px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+
+.contact-label span {
+  width: 35px;
+  height: 1px;
+  background: #b9955a;
+}
+
+
+/* TITLE */
+
+.velora-contact h2 {
+  max-width: 900px;
+  margin: 35px auto 0;
+
+  text-align: center;
+
+  color: #f5f0e8;
+
+  font-family: "Playfair Display", serif;
+  font-size: clamp(55px, 8vw, 110px);
+  font-weight: 400;
+  line-height: 0.95;
+  letter-spacing: -4px;
+}
+
+.velora-contact h2 em {
+  display: block;
+
+  color: #c8a269;
+
+  font-weight: 400;
+}
+
+
+/* INTRO */
+
+.contact-intro {
+  max-width: 570px;
+  margin: 35px auto 0;
+
+  text-align: center;
+
+  color: rgba(255,255,255,0.55);
+
+  font-family: "DM Sans", sans-serif;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+
+/* CONTACT CARDS */
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  margin-top: 80px;
+
+  border-top: 1px solid rgba(255,255,255,0.14);
+  border-bottom: 1px solid rgba(255,255,255,0.14);
+}
+
+
+.contact-card {
+  position: relative;
+
+  display: flex;
+  align-items: flex-start;
+  gap: 22px;
+
+  min-height: 190px;
+  padding: 38px 30px;
+
+  color: inherit;
+  text-decoration: none;
+
+  border-right: 1px solid rgba(255,255,255,0.12);
+
+  transition:
+    background 0.4s ease,
+    transform 0.4s ease;
+}
+
+.contact-card:last-child {
+  border-right: none;
+}
+
+
+.contact-card:hover {
+  background: rgba(190,140,65,0.07);
+  transform: translateY(-5px);
+}
+
+
+.contact-number {
+  color: #b9955a;
+
+  font-family: "Playfair Display", serif;
+  font-size: 14px;
+}
+
+
+.contact-card small {
+  display: block;
+
+  margin-bottom: 12px;
+
+  color: #b9955a;
+
+  font-family: "DM Sans", sans-serif;
+  font-size: 9px;
+  letter-spacing: 3px;
+}
+
+
+.contact-card h3 {
+  margin: 0;
+
+  color: #eee8df;
+
+  font-family: "Playfair Display", serif;
+  font-size: 21px;
+  font-weight: 400;
+}
+
+
+.contact-card p {
+  margin-top: 10px;
+
+  color: rgba(255,255,255,0.42);
+
+  font-family: "DM Sans", sans-serif;
+  font-size: 11px;
+}
+
+
+.contact-arrow {
+  position: absolute;
+  right: 25px;
+  bottom: 25px;
+
+  color: #c8a269;
+
+  font-size: 18px;
+
+  transition: transform 0.3s ease;
+}
+
+
+.contact-card:hover .contact-arrow {
+  transform: translate(5px,-5px);
+}
+
+
+/* =========================================
+   NEWSLETTER
+   ========================================= */
+
+.contact-newsletter {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  gap: 70px;
+
+  margin-top: 100px;
+  padding: 55px 0;
+
+  border-top: 1px solid rgba(255,255,255,0.12);
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+}
+
+
+.contact-newsletter > div:first-child > span {
+  color: #b9955a;
+
+  font-family: "DM Sans", sans-serif;
+  font-size: 9px;
+  letter-spacing: 3px;
+}
+
+
+.contact-newsletter h3 {
+  margin: 18px 0 15px;
+
+  color: #eee8df;
+
+  font-family: "Playfair Display", serif;
+  font-size: 38px;
+  font-weight: 400;
+}
+
+
+.contact-newsletter h3 em {
+  color: #c8a269;
+}
+
+
+.contact-newsletter p {
+  max-width: 430px;
+
+  color: rgba(255,255,255,0.45);
+
+  font-family: "DM Sans", sans-serif;
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+
+/* NEWSLETTER FORM */
+
+.luxury-newsletter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+.newsletter-input {
+  display: flex;
+
+  border-bottom: 1px solid rgba(255,255,255,0.45);
+}
+
+
+.newsletter-input input {
+  flex: 1;
+
+  padding: 16px 5px;
+
+  background: transparent;
+  border: none;
+  outline: none;
+
+  color: #fff;
+
+  font-family: "DM Sans", sans-serif;
+  font-size: 12px;
+}
+
+
+.newsletter-input input::placeholder {
+  color: rgba(255,255,255,0.35);
+}
+
+
+.newsletter-input button {
+  padding: 16px 5px;
+
+  background: none;
+  border: none;
+
+  color: #c8a269;
+
+  font-family: "DM Sans", sans-serif;
+  font-size: 10px;
+  letter-spacing: 2px;
+
+  cursor: pointer;
+
+  transition: 0.3s ease;
+}
+
+
+.newsletter-input button:hover {
+  color: #fff;
+}
+
+
+#newsletterMessage {
+  margin-top: 12px;
+
+  color: #c8a269;
+
+  font-family: "DM Sans", sans-serif;
+  font-size: 10px;
+}
+
+
+/* =========================================
+   SIGNATURE
+   ========================================= */
+
+.contact-signature {
+  text-align: center;
+
+  margin-top: 100px;
+}
+
+
+.contact-signature span {
+  display: block;
+
+  color: #eee8df;
+
+  font-family: "DM Sans", sans-serif;
+  font-size: 25px;
+  font-weight: 600;
+
+  letter-spacing: 8px;
+}
+
+
+.contact-signature p {
+  margin-top: 14px;
+
+  color: rgba(255,255,255,0.35);
+
+  font-family: "Playfair Display", serif;
+  font-size: 13px;
+  font-style: italic;
+}
+
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 850px) {
+
+  .velora-contact {
+    padding: 110px 25px 70px;
+  }
+
+  .velora-contact::before {
+    inset: 30px 20px;
+  }
+
+  .velora-contact h2 {
+    font-size: clamp(50px, 14vw, 80px);
+    letter-spacing: -2px;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-card {
+    border-right: none;
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+  }
+
+  .contact-card:last-child {
+    border-bottom: none;
+  }
+
+  .contact-newsletter {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+}
+
+
+@media (max-width: 500px) {
+
+  .velora-contact {
+    padding: 90px 20px 60px;
+  }
+
+  .contact-label {
+    font-size: 8px;
+    letter-spacing: 2px;
+  }
+
+  .velora-contact h2 {
+    font-size: 48px;
+  }
+
+  .contact-intro {
+    font-size: 13px;
+  }
+
+  .contact-grid {
+    margin-top: 55px;
+  }
+
+  .contact-card {
+    padding: 30px 15px;
+  }
+
+  .contact-newsletter {
+    margin-top: 70px;
+  }
+
+  .contact-newsletter h3 {
+    font-size: 30px;
+  }
+
+}
+
+/* =========================================
+   VELORA LUXURY FOOTER
+   ========================================= */
+
+.velora-footer {
+  position: relative;
+
+  padding: 80px 7vw 25px;
+
+  background: #050505;
+
+  overflow: hidden;
+
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+
+/* MAIN FOOTER */
+
+.footer-main {
+  position: relative;
+  z-index: 2;
+
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+
+  gap: 50px;
+
+  padding-bottom: 70px;
+
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+
+/* BRAND */
+
+.footer-logo {
+  color: #eee8df;
+
+  text-decoration: none;
+
+  font-family: "DM Sans", sans-serif;
+  font-size: 28px;
+  font-weight: 600;
+
+  letter-spacing: 7px;
+}
+
+.footer-logo span {
+  font-size: 9px;
+  vertical-align: top;
+}
+
+
+.footer-brand > p {
+  margin: 8px 0 25px;
+
+  color: #b9955a;
+
+  font-family: "DM Sans", sans-serif;
+  font-size: 8px;
+  letter-spacing: 3px;
+}
+
+
+.footer-brand > small {
+  color: rgba(255,255,255,0.35);
+
+  font-family: "Playfair Display", serif;
+  font-size: 13px;
+  font-style: italic;
+}
+
+
+/* COLUMNS */
+
+.footer-column h4 {
+  margin: 0 0 25px;
+
+  color: #b9955a;
+
+  font-family: "DM Sans", sans-serif;
+  font-size: 9px;
+  letter-spacing: 3px;
+}
+
+
+.footer-column a {
+  display: block;
+
+  width: max-content;
+
+  margin-bottom: 15px;
+
+  color: rgba(255,255,255,0.5);
+
+  text-decoration: none;
+
+  font-family: "DM Sans", sans-serif;
+  font-size: 11px;
+
+  transition: 0.3s ease;
+}
+
+
+.footer-column a:hover {
+  color: #d1ad70;
+
+  transform: translateX(5px);
+}
+
+
+/* WATERMARK */
+
+.footer-watermark {
+  position: relative;
+  z-index: 1;
+
+  margin-top: 55px;
+
+  color: rgba(255,255,255,0.035);
+
+  font-family: "Playfair Display", serif;
+  font-size: clamp(90px, 19vw, 280px);
+  font-weight: 400;
+
+  line-height: 0.75;
+
+  text-align: center;
+
+  letter-spacing: -10px;
+
+  user-select: none;
+}
+
+
+/* BOTTOM */
+
+.footer-bottom {
+  position: relative;
+  z-index: 3;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+
+  align-items: center;
+
+  margin-top: 35px;
+
+  color: rgba(255,255,255,0.3);
+
+  font-family: "DM Sans", sans-serif;
+  font-size: 8px;
+  letter-spacing: 2px;
+}
+
+
+.footer-bottom span:nth-child(2) {
+  text-align: center;
+}
+
+
+.footer-bottom a {
+  color: rgba(255,255,255,0.4);
+
+  text-align: right;
+
+  text-decoration: none;
+
+  transition: 0.3s ease;
+}
+
+
+.footer-bottom a:hover {
+  color: #c8a269;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 800px) {
+
+  .velora-footer {
+    padding: 65px 25px 25px;
+  }
+
+  .footer-main {
+    grid-template-columns: 1fr 1fr;
+
+    gap: 45px 25px;
+  }
+
+  .footer-brand {
+    grid-column: 1 / -1;
+  }
+
+  .footer-watermark {
+    font-size: 23vw;
+    letter-spacing: -5px;
+  }
+
+  .footer-bottom {
+    grid-template-columns: 1fr;
+
+    gap: 15px;
+
+    text-align: left;
+  }
+
+  .footer-bottom span:nth-child(2),
+  .footer-bottom a {
+    text-align: left;
+  }
+
+}
+
+
+@media (max-width: 500px) {
+
+  .footer-main {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-brand {
+    grid-column: auto;
+  }
+
+  .footer-watermark {
+    font-size: 25vw;
+  }
+
+}

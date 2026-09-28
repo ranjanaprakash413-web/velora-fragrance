@@ -1,18 +1,1322 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="VELORA - Luxury perfume collection. Discover fragrances that capture confidence, sophistication, and timeless luxury." />
-    <meta name="keywords" content="VELORA, luxury perfume, fragrance, eau de parfum, designer perfume" />
-    <title>VELORA | Luxury Fragrances</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#090909" />
+  <meta name="description" content="VELORA — a fragrance that becomes your signature." />
+
+  <title>VELORA — Luxury Fragrance</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- ABOUT SECTION ADDITIONAL STYLES -->
+  <style>
+
+    /* =========================================
+       VELORA ABOUT EXPERIENCE
+       ========================================= */
+
+    .velora-about {
+      position: relative;
+      min-height: 100vh;
+      padding: 130px 7vw 70px;
+      overflow: hidden;
+      background:
+        radial-gradient(
+          circle at 75% 50%,
+          rgba(164, 117, 52, 0.13),
+          transparent 32%
+        ),
+        linear-gradient(
+          135deg,
+          #080808 0%,
+          #101010 50%,
+          #070707 100%
+        );
+    }
+
+    .velora-about::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(
+          circle at 70% 65%,
+          rgba(255, 197, 108, 0.07),
+          transparent 25%
+        );
+    }
+
+    .about-top-label {
+      position: relative;
+      z-index: 2;
+      margin-bottom: 45px;
+      font-family: "DM Sans", sans-serif;
+      font-size: 11px;
+      letter-spacing: 3px;
+      color: #c8a66a;
+      text-transform: uppercase;
+    }
+
+    .about-main-grid {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1.05fr 1fr;
+      gap: 50px;
+      align-items: center;
+      min-height: 620px;
+    }
+
+    /* LEFT SIDE */
+
+    .about-left {
+      position: relative;
+      z-index: 4;
+    }
+
+    .about-left h2 {
+      max-width: 780px;
+      margin: 0;
+      color: #f4f0e9;
+      font-family: "Playfair Display", serif;
+      font-size: clamp(52px, 6vw, 96px);
+      font-weight: 400;
+      line-height: 0.98;
+      letter-spacing: -3px;
+    }
+
+    .about-left h2 em {
+      color: #c7a36a;
+      font-weight: 400;
+    }
+
+    .about-description {
+      max-width: 460px;
+      margin: 45px 0 0;
+      color: rgba(255,255,255,0.62);
+      font-family: "DM Sans", sans-serif;
+      font-size: 15px;
+      line-height: 1.8;
+    }
+
+    /* FRAGRANCE NOTES */
+
+    .about-notes {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      max-width: 570px;
+      margin-top: 55px;
+      border-top: 1px solid rgba(255,255,255,0.16);
+      border-bottom: 1px solid rgba(255,255,255,0.16);
+    }
+
+    .about-note {
+      position: relative;
+      padding: 22px 22px 22px 0;
+    }
+
+    .about-note:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      top: 20px;
+      right: 18px;
+      width: 1px;
+      height: 65px;
+      background: rgba(255,255,255,0.14);
+    }
+
+    .about-note span {
+      display: block;
+      margin-bottom: 13px;
+      font-family: "DM Sans", sans-serif;
+      font-size: 9px;
+      letter-spacing: 2px;
+      color: #b9955a;
+      text-transform: uppercase;
+    }
+   .about-note strong {
+      display: block;
+      margin-bottom: 7px;
+      color: #eee8df;
+      font-family: "Playfair Display", serif;
+      font-size: 16px;
+      font-weight: 400;
+      font-style: italic;
+    }
+
+    .about-note small {
+      color: rgba(255,255,255,0.45);
+      font-family: "DM Sans", sans-serif;
+      font-size: 11px;
+    }
+
+    /* CTA */
+
+    .about-explore {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      margin-top: 38px;
+      padding-bottom: 8px;
+      color: #e8dcc8;
+      border-bottom: 1px solid #b8945c;
+      font-family: "DM Sans", sans-serif;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-decoration: none;
+      transition: 0.3s ease;
+    }
+
+    .about-explore span {
+      font-size: 17px;
+      transition: transform 0.3s ease;
+    }
+
+    .about-explore:hover {
+      color: #d4ad70;
+    }
+
+    .about-explore:hover span {
+      transform: translate(5px, -3px);
+    }
+
+    /* RIGHT SIDE */
+
+    .about-product {
+      position: relative;
+      height: 650px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* GOLD GLOW */
+
+    .about-glow {
+      position: absolute;
+      width: 470px;
+      height: 470px;
+      border-radius: 50%;
+      background: radial-gradient(
+        circle,
+        rgba(180,125,52,0.22),
+        rgba(180,125,52,0.06) 35%,
+        transparent 70%
+      );
+      filter: blur(20px);
+    }
+
+    /* SMOKE */
+
+    .about-smoke {
+      position: absolute;
+      width: 260px;
+      height: 500px;
+      top: 20px;
+      right: 100px;
+      background: linear-gradient(
+        to top,
+        rgba(255,255,255,0.04),
+        transparent
+      );
+      filter: blur(35px);
+      opacity: 0.6;
+      transform: rotate(8deg);
+      border-radius: 50%;
+    }
+
+    /* PERFUME BOTTLE */
+
+    .about-bottle {
+      position: relative;
+      z-index: 4;
+      width: 260px;
+      height: 340px;
+      transform: perspective(800px) rotateY(-8deg);
+      filter:
+        drop-shadow(0 35px 35px rgba(0,0,0,0.65))
+        drop-shadow(0 0 30px rgba(197,142,70,0.12));
+      animation: bottleFloat 5s ease-in-out infinite;
+    }
+
+    @keyframes bottleFloat {
+      0%,100% {
+        transform:
+          perspective(800px)
+          rotateY(-8deg)
+          translateY(0);
+      }
+
+      50% {
+        transform:
+          perspective(800px)
+          rotateY(-8deg)
+          translateY(-14px);
+      }
+    }
+
+    .about-bottle-cap {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 130px;
+      height: 75px;
+      border-radius: 7px 7px 3px 3px;
+      background:
+        linear-gradient(
+          90deg,
+          #171717,
+          #3c3024,
+          #0a0a0a
+        );
+      border: 1px solid rgba(205,161,95,0.55);
+      box-shadow:
+        inset 8px 0 12px rgba(255,255,255,0.06),
+        inset -8px 0 12px rgba(0,0,0,0.7);
+    }
+
+    .about-bottle-cap::after {
+      content: "";
+      position: absolute;
+      inset: 7px;
+      border: 1px solid rgba(218,171,100,0.25);
+    }
+
+    .about-bottle-neck {
+      position: absolute;
+      top: 67px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 70px;
+      height: 50px;
+      background:
+        linear-gradient(
+          90deg,
+          #111,
+          #493721,
+          #15110d
+        );
+      border-left: 1px solid rgba(220,170,95,0.5);
+      border-right: 1px solid rgba(220,170,95,0.5);
+    }
+
+    .about-bottle-body {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 235px;
+      height: 285px;
+      border-radius: 22px 22px 28px 28px;
+      overflow: hidden;
+
+      background:
+        linear-gradient(
+          110deg,
+          rgba(255,255,255,0.12),
+          rgba(35,25,15,0.95) 25%,
+          rgba(7,7,7,0.98) 65%,
+          rgba(165,115,48,0.35)
+        );
+
+      border: 1px solid rgba(221,176,105,0.65);
+
+      box-shadow:
+        inset 12px 0 25px rgba(255,255,255,0.06),
+        inset -18px 0 35px rgba(0,0,0,0.7),
+        0 25px 40px rgba(0,0,0,0.55);
+    }
+
+    .about-bottle-body::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 17px;
+      width: 3px;
+      height: 90%;
+      background: linear-gradient(
+        to bottom,
+        transparent,
+        rgba(255,255,255,0.28),
+        transparent
+      );
+      filter: blur(1px);
+    }
+
+    .about-label {
+      position: absolute;
+      left: 50%;
+      top: 95px;
+      transform: translateX(-50%);
+      width: 160px;
+      padding: 27px 12px;
+      text-align: center;
+      border: 1px solid rgba(208,164,91,0.55);
+      background: rgba(8,8,8,0.72);
+      backdrop-filter: blur(4px);
+    }
+
+    .about-label strong {
+      display: block;
+      color: #d6ad6c;
+      font-family: "DM Sans", sans-serif;
+      font-size: 19px;
+      letter-spacing: 6px;
+    }
+
+    .about-label small {
+      display: block;
+      margin-top: 9px;
+      color: #f1ece4;
+      font-family: "DM Sans", sans-serif;
+      font-size: 8px;
+      letter-spacing: 3px;
+    }
+
+    .about-label i {
+      display: block;
+      width: 35px;
+      height: 1px;
+      margin: 13px auto;
+      background: #b99052;
+    }
+
+    .about-label span {
+      color: rgba(255,255,255,0.5);
+      font-family: "DM Sans", sans-serif;
+      font-size: 7px;
+      letter-spacing: 2px;
+    }
+
+    /* BOTANICAL ELEMENTS */
+
+    .about-orb {
+      position: absolute;
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      background:
+        radial-gradient(
+          circle at 35% 30%,
+          #ffd98b,
+          #a7641e 55%,
+          #35190b
+        );
+      box-shadow: 0 10px 30px rgba(174,108,34,0.3);
+    }
+
+    .orb-one {
+      bottom: 90px;
+      right: 80px;
+    }
+
+    .orb-two {
+      top: 170px;
+      left: 80px;
+      width: 28px;
+      height: 28px;
+    }
+
+    .about-flower {
+      position: absolute;
+      bottom: 70px;
+      left: 65px;
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      background:
+        radial-gradient(
+          circle,
+          #e9e1d3 0 10%,
+          transparent 11%
+        ),
+        conic-gradient(
+          from 0deg,
+          #f5eee2 0deg 45deg,
+          transparent 45deg 90deg,
+          #eee5d5 90deg 135deg,
+          transparent 135deg 180deg,
+          #f5eee2 180deg 225deg,
+          transparent 225deg 270deg,
+          #eee5d5 270deg 315deg,
+          transparent 315deg
+        );
+      opacity: 0.8;
+      filter: drop-shadow(0 10px 20px rgba(0,0,0,0.4));
+    }
+
+    /* SIDE DESCRIPTION */
+
+    .about-side-copy {
+      position: absolute;
+      right: -10px;
+      top: 180px;
+      width: 220px;
+      color: rgba(255,255,255,0.55);
+      font-family: "Playfair Display", serif;
+      font-size: 13px;
+      font-style: italic;
+      line-height: 1.7;
+    }
+.about-side-copy strong {
+      color: #d4ae72;
+      font-weight: 400;
+    }
+
+    /* BOTTOM NAV */
+
+    .about-bottom {
+      position: relative;
+      z-index: 5;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 20px;
+      margin-top: 50px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.15);
+      font-family: "DM Sans", sans-serif;
+      font-size: 9px;
+      letter-spacing: 2px;
+      color: rgba(255,255,255,0.42);
+      text-transform: uppercase;
+    }
+
+    .about-bottom span:nth-child(2) {
+      text-align: center;
+      color: rgba(255,255,255,0.6);
+    }
+
+    .about-bottom span:last-child {
+      text-align: right;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 900px) {
+
+      .velora-about {
+        padding: 100px 25px 50px;
+      }
+
+      .about-main-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .about-left h2 {
+        font-size: clamp(48px, 12vw, 75px);
+        letter-spacing: -2px;
+      }
+
+      .about-product {
+        height: 520px;
+      }
+
+      .about-side-copy {
+        right: 0;
+        top: 70px;
+      }
+
+      .about-bottle {
+        transform: scale(0.85);
+      }
+
+      .about-bottom {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .about-bottom span,
+      .about-bottom span:nth-child(2),
+      .about-bottom span:last-child {
+        text-align: left;
+      }
+    }
+
+    @media (max-width: 600px) {
+
+      .about-notes {
+        grid-template-columns: 1fr;
+      }
+
+      .about-note:not(:last-child)::after {
+        display: none;
+      }
+
+      .about-note {
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+      }
+
+      .about-product {
+        height: 470px;
+      }
+
+      .about-bottle {
+        transform: scale(0.7);
+      }
+
+      .about-side-copy {
+        display: none;
+      }
+
+      .about-flower {
+        left: 10px;
+      }
+
+      .orb-one {
+        right: 10px;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- =========================================
+       HEADER
+       ========================================= -->
+
+  <header class="site-header">
+
+    <a class="brand" href="#home" aria-label="Velora home">
+      VELORA<span>®</span>
+      <small>THE ART OF FRAGRANCE</small>
+    </a>
+
+    <button
+      class="menu-toggle"
+      id="menuToggle"
+      aria-label="Open menu"
+      aria-expanded="false"
+    >
+      ☰
+    </button>
+
+    <nav class="nav" id="nav">
+      <a href="#home">Home</a>
+      <a href="#shop">Shop</a>
+      <a href="#about">About</a>
+      <a href="#notes">Discover</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="header-actions">
+
+      <button class="icon-btn" aria-label="Search" id="searchBtn">
+        ⌕
+      </button>
+
+      <button class="icon-btn" aria-label="Account" id="accountBtn">
+        ♙
+      </button>
+
+      <button class="bag-btn" id="bagBtn" aria-label="Shopping bag">
+        ♧ <span id="cartCount">0</span>
+      </button>
+
+    </div>
+
+  </header>
+
+
+  <main>
+
+    <!-- =========================================
+         HERO
+         ========================================= -->
+
+    <section class="hero section" id="home">
+
+      <div class="hero-copy reveal">
+
+        <p class="eyebrow">
+          <i></i>
+          PREMIUM COLLECTION
+        </p>
+
+        <h1>
+          More Than a Fragrance.<br>
+          <em>It’s a Presence.</em>
+        </h1>
+
+        <p class="hero-desc">
+          Crafted for those who move with quiet confidence.
+          Discover a signature that stays long after you leave.
+        </p>
+
+        <div class="hero-actions">
+
+          <a class="btn btn-gold" href="#shop">
+            EXPLORE COLLECTION
+            <span>↗</span>
+          </a>
+
+          <a class="round-link" href="#about" aria-label="Learn more">
+            →
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <div class="hero-visual">
+
+        <div class="hero-glow"></div>
+
+        <div class="smoke smoke-one"></div>
+        <div class="smoke smoke-two"></div>
+
+        <div class="petal petal-a"></div>
+        <div class="petal petal-b"></div>
+        <div class="petal petal-c"></div>
+
+        <div class="hero-video">
+
+          <video
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="auto"
+          >
+            <source
+              src="./video/velora vdo3.mp4"
+              type="video/mp4"
+            >
+
+            Your browser does not support video.
+
+          </video>
+
+        </div>
+
+        <div class="hero-side-note">
+          VELORA NOIR
+          <span>— 01 / 04</span>
+        </div>
+
+      </div>
+
+
+      <div class="hero-bottom">
+
+        <span>SCROLL TO DISCOVER</span>
+
+        <div class="scroll-line"></div>
+
+        <span>01 — 04</span>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================================
+         NEW LUXURY ABOUT SECTION
+         ========================================= -->
+
+    <section class="velora-about section" id="about">
+
+      <!-- SMALL SECTION LABEL -->
+
+      <div class="about-top-label reveal">
+        01 / THE VELORA EXPERIENCE
+      </div>
+
+
+      <div class="about-main-grid">
+
+
+        <!-- =====================================
+             LEFT SIDE — TEXT
+             ===================================== -->
+
+        <div class="about-left reveal">
+
+          <h2>
+            A little mystery.<br>
+            <em>A lasting impression.</em>
+          </h2>
+
+
+          <p class="about-description">
+
+            <strong>VELORA</strong> is an expression of modern elegance.
+            Every fragrance is imagined as a personal signature —
+            distinctive, memorable, and effortlessly yours.
+
+          </p>
+
+
+          <!-- FRAGRANCE NOTES -->
+
+          <div class="about-notes">
+
+            <div class="about-note">
+
+              <span>Top Notes</span>
+
+              <strong>Bergamot</strong>
+
+              <small>
+                Pink Pepper
+              </small>
+
+            </div>
+
+
+            <div class="about-note">
+
+              <span>Heart Notes</span>
+
+              <strong>Jasmine</strong>
+
+              <small>
+                Rose
+              </small>
+
+            </div>
+
+
+            <div class="about-note">
+
+              <span>Base Notes</span>
+
+              <strong>Amber</strong>
+
+              <small>
+                Vanilla
+              </small>
+
+            </div>
+
+          </div>
+
+
+          <!-- CTA -->
+
+          <a
+            href="#notes"
+            class="about-explore"
+          >
+            EXPLORE THE SCENT
+            <span>↗</span>
+          </a>
+
+        </div>
+
+
+        <!-- =====================================
+             RIGHT SIDE — PERFUME
+             ===================================== -->
+
+        <div class="about-product reveal">
+
+          <div class="about-glow"></div>
+
+          <div class="about-smoke"></div>
+
+
+          <!-- PERFUME BOTTLE -->
+
+
+          <!-- DECORATIVE ELEMENTS -->
+
+          <div class="about-orb orb-one"></div>
+
+          <div class="about-orb orb-two"></div>
+
+          <div class="about-flower"></div>
+
+
+          <!-- SIDE BRAND DESCRIPTION -->
+
+          <p class="about-side-copy">
+
+            <strong>VELORA</strong> is an expression of
+            modern elegance, where fragrance meets emotion.
+            Crafted for those who seek more than just a scent —
+            but a feeling.
+
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- =====================================
+           ABOUT BOTTOM NAVIGATION
+           ===================================== -->
+
+      <div class="about-bottom reveal">
+
+        <span>
+          ← &nbsp; 01 / THE VELORA EXPERIENCE
+        </span>
+
+        <span>
+          02 / SIGNATURE SCENTS
+        </span>
+
+        <span>
+          03 / OUR PHILOSOPHY &nbsp; →
+        </span>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================================
+         COLLECTION
+         ========================================= -->
+
+    <section class="collection section" id="shop">
+
+      <div class="section-heading reveal">
+
+        <div>
+
+          <p class="eyebrow">
+            <i></i>
+            CURATED FOR YOU
+          </p>
+
+          <h2>
+            Our Signature
+            <em>Collection</em>
+          </h2>
+
+        </div>
+
+        <a href="#shop" class="text-link">
+          VIEW ALL SCENTS
+          <span>↗</span>
+        </a>
+
+      </div>
+
+
+      <div class="product-grid">
+
+  <!-- ================= NOIR ================= -->
+
+  <article class="product-card reveal">
+
+    <div class="product-image image-noir">
+
+      <span class="product-tag">
+        BESTSELLER
+      </span>
+
+      <img
+        src="./image/velora img3.jpeg"
+        alt="VELORA NOIR perfume"
+        class="real-perfume-image"
+      >
+
+      <button
+        class="quick-add"
+        data-add="VELORA NOIR"
+      >
+        ＋ QUICK ADD
+      </button>
+
+    </div>
+
+    <div class="product-meta">
+
+      <div>
+        <h3>VELORA NOIR</h3>
+
+        <p>
+          Amber · Woody · Musk
+        </p>
+      </div>
+
+      <strong>
+        ₹2,499
+      </strong>
+
+    </div>
+
+  </article>
+
+
+  <!-- ================= AMBER ================= -->
+
+  <article class="product-card reveal">
+
+    <div class="product-image image-amber">
+
+      <span class="product-tag">
+        NEW ARRIVAL
+      </span>
+
+      <img
+        src="./image/velora img4.jpeg"
+        alt="VELORA AMBER perfume"
+        class="real-perfume-image"
+      >
+
+      <button
+        class="quick-add"
+        data-add="VELORA AMBER"
+      >
+        ＋ QUICK ADD
+      </button>
+
+    </div>
+
+    <div class="product-meta">
+
+      <div>
+        <h3>VELORA AMBER</h3>
+
+        <p>
+          Warm · Spiced · Rich
+        </p>
+      </div>
+
+      <strong>
+        ₹2,299
+      </strong>
+
+    </div>
+
+  </article>
+
+
+  <!-- ================= BLUSH ================= -->
+
+  <article class="product-card reveal">
+
+    <div class="product-image image-blush">
+
+      <span class="product-tag">
+        EDITOR'S PICK
+      </span>
+
+      <img
+        src="./image/velora img 5.jpeg"
+        alt="VELORA BLUSH perfume"
+        class="real-perfume-image"
+      >
+
+      <button
+        class="quick-add"
+        data-add="VELORA BLUSH"
+      >
+        ＋ QUICK ADD
+      </button>
+
+    </div>
+
+    <div class="product-meta">
+
+      <div>
+        <h3>VELORA BLUSH</h3>
+
+        <p>
+          Floral · Soft · Radiant
+        </p>
+      </div>
+
+      <strong>
+        ₹2,199
+      </strong>
+
+    </div>
+
+  </article>
+
+
+  
+
+ 
+</div>
+
+    <!-- =========================================
+         NOTES
+         ========================================= -->
+         <!-- =========================================
+     FULL SCREEN DISCOVER PAGE
+     ========================================= -->
+
+<section class="velora-discover-full" id="notes">
+
+    <!-- 3D PERFUME VIDEO -->
+    <video
+        class="discover-full-video"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="auto"
+    >
+        <source src="./video/velora dis.mp4" type="video/mp4">
+    </video>
+
+    <!-- LUXURY DARK OVERLAY -->
+    <div class="discover-full-overlay"></div>
+
+    <!-- CONTENT -->
+    <div class="discover-full-content">
+
+        <p class="discover-label">
+            <span></span>
+            DISCOVER THE NOTES
+        </p>
+
+        <h2>
+            Every layer tells
+            <em>a story.</em>
+        </h2>
+
+        <p class="discover-description">
+            Explore the carefully balanced character of VELORA.
+            Discover the notes that create your signature scent.
+        </p>
+
+        <div class="discover-mini-notes">
+
+            <div>
+                <small>TOP NOTES</small>
+                <strong>Bergamot · Pink Pepper</strong>
+            </div>
+
+            <div>
+                <small>HEART NOTES</small>
+                <strong>Jasmine · Rose</strong>
+            </div>
+
+            <div>
+                <small>BASE NOTES</small>
+                <strong>Amber · Vanilla · Oud</strong>
+            </div>
+
+        </div>
+
+        <a href="#shop" class="discover-explore">
+            EXPLORE THE COLLECTION
+            <span>↗</span>
+        </a>
+
+    </div>
+
+    <div class="discover-page-number">
+        03 / 04
+    </div>
+
+</section>
+
+    <!--===========
+         FEATURE
+         ========================================= -->
+
+    <!-- =========================================
+     FULL SCREEN FEATURE IMAGE
+     ========================================= -->
+
+<section class="velora-fullscreen-feature">
+
+  <!-- FULL BACKGROUND IMAGE -->
+  <img
+    src="./image/velora img 7.jpeg"
+    alt="VELORA Luxury Perfume"
+    class="fullscreen-perfume-image"
+  >
+
+  <!-- DARK CINEMATIC OVERLAY -->
+  <div class="fullscreen-overlay"></div>
+
+  <!-- TEXT -->
+  <div class="fullscreen-content">
+
+    <p class="eyebrow">
+      <i></i>
+      THE VELORA STANDARD
+    </p>
+
+    <h2>
+      Made to be<br>
+      <em>remembered.</em>
+    </h2>
+
+    <p class="fullscreen-description">
+      Considered design. Distinctive character.
+      A fragrance experience that feels personal
+      from the very first moment.
+    </p>
+
+    <a
+      class="btn btn-outline"
+      href="#shop"
+    >
+      DISCOVER THE SCENT
+      <span>↗</span>
+    </a>
+
+  </div>
+
+</section>
+
+
+    <!-- =========================================
+         CTA
+         ========================================= -->
+
+    <section class="cta section" id="contact">
+
+      <div class="cta-inner reveal">
+
+        <p class="eyebrow">
+          <i></i>
+          YOUR SIGNATURE AWAITS
+        </p>
+
+        <h2>
+          Make it
+          <em>unforgettable.</em>
+        </h2>
+
+        <p>
+          Find the fragrance that feels unmistakably yours.
+        </p>
+
+        <a
+          href="#shop"
+          class="btn btn-gold"
+        >
+          EXPLORE VELORA
+          <span>↗</span>
+        </a>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================================
+       FOOTER
+       ========================================= -->
+
+  <footer class="footer">
+
+    <div class="footer-top">
+
+      <a class="brand" href="#home">
+
+        VELORA<span>®</span>
+
+        <small>
+          THE ART OF FRAGRANCE
+        </small>
+
+      </a>
+
+
+      <p>
+        Where elegance meets every drop.
+      </p>
+
+
+      <form
+        id="newsletter"
+        class="newsletter"
+      >
+
+        <label for="email">
+          A NOTE FROM VELORA
+        </label>
+
+        <div>
+
+          <input
+            id="email"
+            type="email"
+            placeholder="Your email address"
+            required
+          >
+
+          <button
+            type="submit"
+            aria-label="Subscribe"
+          >
+            →
+          </button>
+
+        </div>
+
+        <small id="newsletterMessage"></small>
+
+      </form>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+      <span>
+        © 2026 VELORA. ALL RIGHTS RESERVED.
+      </span>
+
+      <div>
+
+        <a href="#shop">
+          SHOP
+        </a>
+
+        <a href="#contact">
+          CONTACT
+        </a>
+
+        <a href="#home">
+          BACK TO TOP ↑
+        </a>
+
+      </div>
+
+      <span>
+        CRAFTED WITH INTENTION
+      </span>
+
+    </div>
+
+  </footer>
+
+
+  <!-- TOAST -->
+
+  <div
+    class="toast"
+    id="toast"
+    role="status"
+    aria-live="polite"
+  ></div>
+
+
+  <script src="script.js"></script>
+
+</body>
 </html>
